@@ -1,4 +1,4 @@
-<h1 style= "color:#23968b">Filteristic</h1>
+<h1 style= "color:#23968b">Life Share</h1>
 
 Summary 
 
@@ -14,4 +14,4 @@ A website for blood donation
 
 4- Yaseen Saed 
 
-5- Yousef obaidate 
+5- Yousef Obeidat  
