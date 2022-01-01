@@ -2,14 +2,14 @@ import React from 'react'
 import Navbar from './Navbar'
 import Sectiontwo from './Sectiontwo'
 import LoginForm from './LoginForm'
-import Signupform from './Signupform'
+// import Signupform from './Signupform'
 const  Homa_page =()=> {
     return (
         <>
             <Navbar/>
-            {/* <Sectiontwo/> */}
+            <Sectiontwo/>
             {/* <LoginForm/> */}
-            <Signupform/>
+            {/* <Signupform/> */}
         </>
     )
 }
