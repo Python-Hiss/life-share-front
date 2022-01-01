@@ -7,8 +7,8 @@ import Signupformhospital from './Signupfromhospital'
 const  Homa_page =()=> {
     return (
         <>
-            {/* <Navbar/> */}
-            {/* <Sectiontwo/> */}
+            <Navbar/>
+            <Sectiontwo/>
             {/* <LoginForm/> */}
             {/* <Signupform/> */}
             <Signupformhospital/>
