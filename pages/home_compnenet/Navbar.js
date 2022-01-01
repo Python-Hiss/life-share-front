@@ -43,7 +43,7 @@ export default function Navbar() {
             className="divnavbar">
             <ul style={{display: 'flex'}} >
               <li  id="textdocs">
-                  Homa_page
+                  Home
               </li>
               <li  id="textdocs">
                   Profile
