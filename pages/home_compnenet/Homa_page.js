@@ -6,10 +6,10 @@ import Signupform from './Signupform'
 const  Homa_page =()=> {
     return (
         <>
-            <Navbar/>
+            {/* <Navbar/> */}
             {/* <Sectiontwo/> */}
-            {/* <LoginForm/> */}
-            <Signupform/>
+            <LoginForm/>
+            {/* <Signupform/> */}
         </>
     )
 }

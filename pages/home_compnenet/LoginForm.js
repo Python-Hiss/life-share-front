@@ -1,8 +1,39 @@
 import React from 'react'
 import Link from "next/link";
+import Navbar from './Navbar';
+import { useState,useEffect } from "react";
+import axios from 'axios';
+import { TweenMax, Power3, TimelineLite,Expo,gsap } from "gsap";
 export default function LoginForm() {
+  useEffect(() => {
+    TweenMax.staggerFrom('.divnavbar ul li',1,{
+      delay:1.4,
+      opacity:0,
+      y:-20,
+      ease:Power3.easeInOut 
+   },0.2)
+   TweenMax.from(".logoimage", 2, {
+    delay: 0.6,
+    y: 40,
+    scale:(-4,0),
+    ease: Expo.easeInOut
+  });
+
+  }, []); 
+
+  const handleloginsubmit =async (e) => {
+    e.preventDefault();
+    let data={
+      "username":e.target.username.value,
+      "password":e.target.password.value
+    }
+    let url = 'http://127.0.0.1:8000/account/auth/'
+    const login = await axios.post(url,data)
+    console.log(login.data);
+  }
     return (
     <>
+    <Navbar/>
      <section  id='sectionlogin'>
 
 <div className="container h-full px-4 mx-auto" id='divlogin'>
@@ -37,18 +68,19 @@ export default function LoginForm() {
           <div className="mb-3 font-bold text-center text-blueGray-400">
             <small>Or sign in with credentials</small>
           </div>
-          <form>
+          <form onSubmit={handleloginsubmit}>
             <div className="relative w-full mb-3">
               <label
                 className="block mb-2 text-xs font-bold uppercase text-blueGray-600"
                 htmlFor="grid-password"
               >
-                Email
+                Username
               </label>
               <input
-                type="email"
+                type="text"
+                name='username'
                 className="w-full px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
-                placeholder="Email"
+                placeholder="Username"
               />
             </div>
 
@@ -61,6 +93,7 @@ export default function LoginForm() {
               </label>
               <input
                 type="password"
+                name="password"
                 className="w-full px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
                 placeholder="Password"
               />
@@ -81,7 +114,7 @@ export default function LoginForm() {
             <div className="mt-6 text-center">
               <button
                 className="w-full px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-800 active:bg-blueGray-600 hover:shadow-lg focus:outline-none"
-                type="button"
+                type="submit"
               >
                 Sign In
               </button>

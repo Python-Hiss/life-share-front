@@ -70,7 +70,7 @@
 }
 #sectionsignup{
   background-image:  radial-gradient( rgb(236, 104, 104), rgb(206, 18, 18),rgb(105, 5, 5));
- 
+ height: 160vmin;
   z-index: -1;
 }
 #divsignup{
