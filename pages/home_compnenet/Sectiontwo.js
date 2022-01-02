@@ -22,7 +22,7 @@ export default function Sectiontwo() {
   return (
     <>
       <section className="relative flex items-center h-screen pt-16 header max-h-860-px ">
-      <video autoplay muted loop ref={videoRef} id="myVideo">
+      <video autoPlay muted loop ref={videoRef} id="myVideo">
         <source src="/video/blood.mp4" type="video/mp4"/>
       </video>
 

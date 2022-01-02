@@ -7,6 +7,7 @@ import Signupformhospital from './Signupfromhospital'
 import { useEffect } from 'react'
 import { TweenMax, Power3, TimelineLite,Expo,gsap } from "gsap";
 
+
 const  Homa_page =()=> {
     useEffect(() => {
         gsap.from('.imagenav',1.5, { y:1000  ,opacity: 0, delay:1,ease:Power3.easeInOut});

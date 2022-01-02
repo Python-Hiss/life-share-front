@@ -5,26 +5,21 @@ import { useState,useEffect ,useReducer } from "react";
 import axios from 'axios';
 import { TweenMax, Power3, TimelineLite,Expo,gsap } from "gsap";
 import UserProfile from '../components/userProfile';
-// import { Redirect } from "react-router-dom";
+import { useAuth } from '../../contexts/auth';
 import { useRouter } from 'next/router';
 export default function LoginForm() {
-  const [dataprofile,setdataprofile]=useState([{'test':'hi'}])
+  const { login ,tokens} = useAuth();
   const router = useRouter()
 
   const handleloginsubmit =async (e) => {
     e.preventDefault();
-    let data={
-      "username":e.target.username.value,
-      "password":e.target.password.value
-    }
+    let username = e.target.username.value;
+    let password = e.target.password.value
     try{
-    let url = 'http://127.0.0.1:8000/account/auth/'
-    let res = await axios.post(url,data)
-    setdataprofile(res.data)
-    router.push({
-      pathname: '/components/userProfile',
-      query: { data: JSON.stringify(res.data)}
-    });
+        
+        await login(username, password)
+        console.log(tokens);
+      
     }
     catch(error){
       console.log('the password or username not correct');
