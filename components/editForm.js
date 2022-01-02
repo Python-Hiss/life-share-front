@@ -39,6 +39,9 @@ function EditForm(props) {
       headers: {
         "content-type": "multipart/form-data",
       },
+    }).then(res =>{
+      props.setResult(res.data)
+
     });
     props.setEditForm(false)
   };
