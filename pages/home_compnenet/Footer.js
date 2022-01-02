@@ -26,42 +26,36 @@ export default function Footer() {
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap text-center lg:text-left">
             <div className="w-full lg:w-6/12 px-4">
-              <h4 className="text-3xl font-semibold text-white">Let's keep in touch!</h4>
+              <h4 className="text-3xl font-semibold text-white">LATEST NEWS</h4>
               <h5 className="text-lg mt-0 mb-2 text-white ">
-                Find us on any of these platforms, we respond 1-2 business days.
               </h5>
-              <div className="mt-6 lg:mb-0 mb-6">
-                <button
-                  className="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                  type="button"
-                >
-                  <i className="fab fa-twitter"></i>
-                </button>
-                <button
-                  className="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                  type="button"
-                >
-                  <i className="fab fa-facebook-square"></i>
-                </button>
-                <button
-                  className="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                  type="button"
-                >
-                  <i className="fab fa-dribbble"></i>
-                </button>
-                <button
-                  className="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                  type="button"
-                >
-                  <i className="fab fa-github"></i>
-                </button>
-              </div>
+              <ul className="list-unstyled">
+                <li>
+                  <a
+                    className="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                    href="https://www.creative-tim.com/presentation?ref=nnjs-footer"
+                  >
+                    Road Accidents Cause a Blood Emergency
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                    href="https://blog.creative-tim.com?ref=nnjs-footer"
+                  >
+                    Amazing Facts about Blood Donation
+                  </a>
+                </li>
+
+              </ul>
+
             </div>
+
             <div className="w-full lg:w-6/12 px-4">
               <div className="flex flex-wrap items-top mb-6">
                 <div className="w-full lg:w-4/12 px-4 ml-auto">
                   <span className="block uppercase text-white text-sm font-semibold mb-2">
-                    Useful Links
+                  LIFE SHARE
                   </span>
                   <ul className="list-unstyled">
                     <li>
@@ -93,24 +87,16 @@ export default function Footer() {
                         className="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
                         href="https://www.creative-tim.com/bootstrap-themes/free?ref=nnjs-footer"
                       >
-                        Free Products
+                        Find Blood
                       </a>
                     </li>
                   </ul>
                 </div>
                 <div className="w-full lg:w-4/12 px-4">
                   <span className="block uppercase text-white text-sm font-semibold mb-2">
-                    Other Resources
+                   Legal
                   </span>
                   <ul className="list-unstyled">
-                    <li>
-                      <a
-                        className="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                        href="https://github.com/creativetimofficial/notus-nextjs/blob/main/LICENSE.md?ref=nnjs-footer"
-                      >
-                        MIT License
-                      </a>
-                    </li>
                     <li>
                       <a
                         className="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
@@ -145,7 +131,7 @@ export default function Footer() {
             <div className="w-full md:w-4/12 px-4 mx-auto text-center">
               <div className="text-sm text-white font-semibold py-1">
                 Copyright © {new Date().getFullYear()} Python-Hiss{" "}
-              
+
                 .
               </div>
             </div>

@@ -33,10 +33,10 @@ export default function Sectiontwo() {
            
           <div className="px-4 w-fit md:w-8/12 lg:w-6/12 xl:w-6/12 contenttext" style={{width:'fit-content'}}>
             <div className="pt-32 sm:pt-0 w-fit"  >
-              <h2 className="text-4xl font-semibold text-blueGray-600">
+              <h2 className="text-4xl font-semibold text-white">
               Give The "Gift of Life"&nbsp;<span style={{fontWeight: 700}}>Today</span>!
               </h2>
-              <p className="mt-4 text-lg leading-relaxed text-blueGray-500" style={{width:'400px'}}>
+              <p className="mt-4 text-lg leading-relaxed text-white" style={{width:'400px'}}>
               Join our cause and help us save more lives. Everyone should have the right to get a blood transfusion.
               </p>
               <div className="mt-12" style={{display:'flex'}}>

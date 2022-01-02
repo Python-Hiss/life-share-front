@@ -28,6 +28,7 @@
 .divnavbar{
     position: relative;
     right: 35%;
+  
 }
 .imagenav{
   animation: float9 4s ease-in-out infinite;
@@ -56,6 +57,7 @@
   transform: translate(-50%, -50%);
   width: fit-content; */
 }
+
 #divlogin{
   width: 100%;
   height: 100vh;
