@@ -1,13 +1,15 @@
 import { useState } from "react";
 import EditForm from "./editForm";
 import axios from "axios";
-
+import { useAuth } from '../contexts/auth'
 function UserProfile() {
+  
+  const { user, logout } = useAuth()
   const [result, setResult] = useState([]);
   const [editForm, setEditForm] = useState(false);
   let submitHandler = async (e) => {
     e.preventDefault();
-    await axios.get("http://127.0.0.1:8000/account/yaseen").then((data) => {
+    await axios.get(`http://127.0.0.1:8000/account/${user.username}`).then((data) => {
       setResult(data.data);
       setEditForm(true);
     });

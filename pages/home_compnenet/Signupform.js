@@ -2,10 +2,10 @@ import React from "react";
 import axios from "axios";
 import { useState,useEffect } from "react";
 import { TweenMax, Power3, TimelineLite,Expo,gsap } from "gsap";
-
+import { useAuth } from '../../contexts/auth';
 import Navbar from "./Navbar";
 export default function Signupform() {
-
+  const { login } = useAuth();
 
   const handlesubmitsignup =async (e) => {
     let data = new FormData()
@@ -25,6 +25,7 @@ export default function Signupform() {
         'content-type': 'multipart/form-data'
       }
     })
+    login(data.username, data.password)
     console.log(create);
   };
   return (
