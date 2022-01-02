@@ -2,33 +2,35 @@ import React from "react";
 import Link from "next/link";
 import { useState,useEffect } from "react";
 import { TweenMax, Power3, TimelineLite,Expo,gsap } from "gsap";
-export default function Navbar() {
-     useEffect(() => {
-    TweenMax.staggerFrom('.divnavbar ul li',1,{
-      delay:1.4,
-      opacity:0,
-      y:-20,
-      ease:Power3.easeInOut 
-   },0.2)
-   TweenMax.from(".logoimage", 2, {
-    delay: 0.6,
-    y: 40,
-    scale:(-4,0),
-    ease: Expo.easeInOut
-  });
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
-  }, []); 
-  
-  const showregister =()=> {
-    console.log('hi');
-    TweenMax.to('#sectionsignup',1.5, {top:0,zIndex:-10,ease:Power3.easeInOut});
-    // TweenMax.to('#sectionsignup',0, {zIndex:-10,ease:Power3.easeInOut,delay:1});
+export default function Navbar() {
+  gsap.registerPlugin(ScrollTrigger)
+  const closeregister =()=> {
+    gsap.to('#sectionsignup',1.5, {top:-1000,ease:Power3.easeInOut,});
+    gsap.to('#sectionsignuphospital',1.5, {top:-1000,ease:Power3.easeInOut,});
+    gsap.to('#sectionlogin',1.5, {top:-1000,ease:Power3.easeInOut,});
   }
+  useEffect(() => {
+    gsap.to(".navbar", {
+      backgroundImage:'linear-gradient(#1B1717,#810000, #CE1212)',
+      duration: 1,
+      scrollTrigger: {
+        trigger: "navbar",
+        toggleActions:'restart reverse restart reverse', // onenter onleave onenterback onleaveback
+        start:'22% center',
+        end:'bottom center',
+        markers:true
+
+      }
+    });
+  }, []);
+
   return (
     <>
       <nav className="fixed top-0 z-50 flex flex-wrap items-center justify-between w-full px-2 py-3 navbar-expand-lg navbar">
         <div className="container flex flex-wrap items-center justify-between px-4 mx-auto">
-          <div onClick={showregister} className="relative flex justify-between w-full cursor-pointer lg:w-auto lg:static lg:block lg:justify-start logoimage">
+          <div onClick={closeregister} className="relative flex justify-between w-full cursor-pointer lg:w-auto lg:static lg:block lg:justify-start logoimage">
             <Link href="/">
               <img
                 style={{width: '80px'}}
@@ -43,7 +45,8 @@ export default function Navbar() {
             className="divnavbar">
             <ul style={{display: 'flex'}} >
               <li  id="textdocs">
-                  Homa_page
+
+                  Home Page
               </li>
               <li  id="textdocs">
                   Profile

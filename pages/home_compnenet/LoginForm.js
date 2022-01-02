@@ -1,45 +1,43 @@
 import React from 'react'
 import Link from "next/link";
 import Navbar from './Navbar';
-import { useState,useEffect } from "react";
+import { useState,useEffect ,useReducer } from "react";
 import axios from 'axios';
 import { TweenMax, Power3, TimelineLite,Expo,gsap } from "gsap";
+import UserProfile from '../components/userProfile';
+import { useAuth } from '../../contexts/auth';
+import { useRouter } from 'next/router';
 export default function LoginForm() {
-  useEffect(() => {
-    TweenMax.staggerFrom('.divnavbar ul li',1,{
-      delay:1.4,
-      opacity:0,
-      y:-20,
-      ease:Power3.easeInOut 
-   },0.2)
-   TweenMax.from(".logoimage", 2, {
-    delay: 0.6,
-    y: 40,
-    scale:(-4,0),
-    ease: Expo.easeInOut
-  });
-
-  }, []); 
+  const { login ,tokens} = useAuth();
+  const router = useRouter()
 
   const handleloginsubmit =async (e) => {
     e.preventDefault();
-    let data={
-      "username":e.target.username.value,
-      "password":e.target.password.value
+    let username = e.target.username.value;
+    let password = e.target.password.value
+    try{
+        
+        await login(username, password)
+        // router.push({
+        //   pathname: '/components/userProfile',
+        //   query: { data: JSON.stringify(tokens)}
+        // });
     }
-    let url = 'http://127.0.0.1:8000/account/auth/'
-    const login = await axios.post(url,data)
-    console.log(login.data);
+    catch(error){
+      console.log('the password or username not correct');
+     
+    }
+   
   }
     return (
     <>
-    <Navbar/>
+   
      <section  id='sectionlogin'>
 
 <div className="container h-full px-4 mx-auto" id='divlogin'>
   <div className="flex items-center content-center justify-center h-full">
     <div className="w-full px-4 lg:w-4/12 loginform">
-      <div className="relative flex flex-col w-full min-w-0 mb-6 break-words border-0 rounded-lg shadow-lg bg-blueGray-200">
+      <div className="relative flex flex-col w-full min-w-0 mb-6 break-words border-0 rounded-lg shadow-lg bg-blueGray-200 frombakc">
         <div className="px-6 py-6 mb-0 rounded-t">
           <div className="mb-3 text-center">
             <h6 className="text-sm font-bold text-blueGray-500">
@@ -54,6 +52,7 @@ export default function LoginForm() {
               <img alt="..." className="w-5 mr-1" src="/img/github.svg" />
               Github
             </button>
+            <Link href="/components/userProfile">
             <button
               className="inline-flex items-center px-4 py-2 mb-1 mr-1 text-xs font-normal font-bold uppercase transition-all duration-150 ease-linear bg-white rounded shadow outline-none active:bg-blueGray-50 text-blueGray-700 focus:outline-none hover:shadow-md"
               type="button"
@@ -61,6 +60,7 @@ export default function LoginForm() {
               <img alt="..." className="w-5 mr-1" src="/img/google.svg" />
               Google
             </button>
+            </Link>
           </div>
           <hr className="mt-6 border-b-1 border-blueGray-300" />
         </div>
@@ -118,7 +118,7 @@ export default function LoginForm() {
               >
                 Sign In
               </button>
-            </div>
+      </div>
           </form>
         </div>
       </div>
