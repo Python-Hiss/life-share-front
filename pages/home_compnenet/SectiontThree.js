@@ -4,13 +4,13 @@ export default function SectiontThree() {
   return (
     <>
 
-      <section className="mt-48 md:mt-40 pb-40 relative bg-white">
+      <section className="relative pb-40 mt-48 bg-white md:mt-40" id='thirdCircle'>
 
-        <div className="container mx-auto px-4 pb-32 pt-48">
-          <div className="items-center flex flex-wrap">
-            <div id="section3" className="w-full md:w-5/12 ml-auto px-12 md:px-4">
+        <div className="container px-4 pt-48 pb-32 mx-auto">
+          <div className="flex flex-wrap items-center">
+            <div id="section3" className="w-full px-12 ml-auto md:w-5/12 md:px-4">
               <div className="md:pr-12">
-                <div className="text-blueGray-500 inline-flex mb-6 shadow-lg ">
+                <div className="inline-flex mb-6 shadow-lg text-blueGray-500 ">
                 </div>
                 
                 <h3  id="text" className="text-3xl font-semibold text-white">
@@ -22,7 +22,7 @@ export default function SectiontThree() {
               </div>
             </div>
 
-            <div className="w-full md:w-6/12 mr-auto px-4 pt-24 md:pt-0">
+            <div className="w-full px-4 pt-24 mr-auto md:w-6/12 md:pt-0">
               <img
                 alt="..."
                 className="max-w-full shadow-xl"
@@ -33,11 +33,11 @@ export default function SectiontThree() {
           </div>
         </div>
 
-        <div className="container mx-auto px-4 pb-32 pt-48">
-          <div className="items-center flex flex-wrap">
-            <div id="section3" className="w-full md:w-5/12 ml-auto px-12 md:px-4">
+        <div className="container px-4 pt-48 pb-32 mx-auto">
+          <div className="flex flex-wrap items-center">
+            <div id="section3" className="w-full px-12 ml-auto md:w-5/12 md:px-4">
               <div className="md:pr-12">
-              <div className="text-blueGray-500 inline-flex mb-6 shadow-lg ">
+              <div className="inline-flex mb-6 shadow-lg text-blueGray-500 ">
                 </div>
                 <h3  id="text" className="text-3xl font-semibold text-white">
                 <span class="u-file-icon u-icon u-icon-rectangle u-icon-2"><img src="/img/heart.png" alt=""/></span>
@@ -49,7 +49,7 @@ export default function SectiontThree() {
               </div>
             </div>
 
-            <div className="w-full md:w-6/12 mr-auto px-4 pt-24 md:pt-0">
+            <div className="w-full px-4 pt-24 mr-auto md:w-6/12 md:pt-0">
               <img
                 alt="..."
                 className="max-w-full shadow-xl"
@@ -60,11 +60,11 @@ export default function SectiontThree() {
           </div>
         </div>
 
-        <div className="container mx-auto px-4 pb-32 pt-48">
-          <div className="items-center flex flex-wrap">
-            <div id="section3" className="w-full md:w-5/12 ml-auto px-12 md:px-4">
+        <div className="container px-4 pt-48 pb-32 mx-auto">
+          <div className="flex flex-wrap items-center">
+            <div id="section3" className="w-full px-12 ml-auto md:w-5/12 md:px-4">
               <div className="md:pr-12">
-              <div className="text-blueGray-500 inline-flex mb-6 shadow-lg ">
+              <div className="inline-flex mb-6 shadow-lg text-blueGray-500 ">
                 </div>
                 <h3  id="text" className="text-3xl font-semibold text-white">
                 <span class="u-file-icon u-icon u-icon-rectangle u-icon-2"><img src="/img/heart2.png" alt=""/></span>
@@ -75,7 +75,7 @@ export default function SectiontThree() {
               </div>
             </div>
 
-            <div className="w-full md:w-6/12 mr-auto px-4 pt-24 md:pt-0">
+            <div className="w-full px-4 pt-24 mr-auto md:w-6/12 md:pt-0">
               <img
                 alt="..."
                 className="max-w-full shadow-xl"
@@ -86,11 +86,11 @@ export default function SectiontThree() {
           </div>
         </div>
 
-        <div className="container mx-auto px-4 pb-32 pt-48">
-          <div className="items-center flex flex-wrap">
-            <div id="section3" className="w-full md:w-5/12 ml-auto px-12 md:px-4">
+        <div className="container px-4 pt-48 pb-32 mx-auto">
+          <div className="flex flex-wrap items-center">
+            <div id="section3" className="w-full px-12 ml-auto md:w-5/12 md:px-4">
               <div className="md:pr-12">
-              <div className="text-blueGray-500 inline-flex mb-6 shadow-lg ">
+              <div className="inline-flex mb-6 shadow-lg text-blueGray-500 ">
                 </div>
                 <h3  id="text" className="text-3xl font-semibold text-white">
                 <span class="u-file-icon u-icon u-icon-rectangle u-icon-2"><img src="/img/give.png" alt=""/></span>
@@ -102,7 +102,7 @@ export default function SectiontThree() {
               </div>
             </div>
 
-            <div className="w-full md:w-6/12 mr-auto px-4 pt-24 md:pt-0">
+            <div className="w-full px-4 pt-24 mr-auto md:w-6/12 md:pt-0">
               <img
                 alt="..."
                 className="max-w-full shadow-xl"

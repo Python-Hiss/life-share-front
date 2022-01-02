@@ -18,10 +18,10 @@ export default function LoginForm() {
     try{
         
         await login(username, password)
-        router.push({
-          pathname: '/components/userProfile',
-          query: { data: JSON.stringify(tokens)}
-        });
+        // router.push({
+        //   pathname: '/components/userProfile',
+        //   query: { data: JSON.stringify(tokens)}
+        // });
     }
     catch(error){
       console.log('the password or username not correct');
@@ -37,7 +37,7 @@ export default function LoginForm() {
 <div className="container h-full px-4 mx-auto" id='divlogin'>
   <div className="flex items-center content-center justify-center h-full">
     <div className="w-full px-4 lg:w-4/12 loginform">
-      <div className="relative flex flex-col w-full min-w-0 mb-6 break-words border-0 rounded-lg shadow-lg bg-blueGray-200">
+      <div className="relative flex flex-col w-full min-w-0 mb-6 break-words border-0 rounded-lg shadow-lg bg-blueGray-200 frombakc">
         <div className="px-6 py-6 mb-0 rounded-t">
           <div className="mb-3 text-center">
             <h6 className="text-sm font-bold text-blueGray-500">
