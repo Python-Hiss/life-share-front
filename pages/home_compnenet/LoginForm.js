@@ -18,8 +18,10 @@ export default function LoginForm() {
     try{
         
         await login(username, password)
-        console.log(tokens);
-      
+        router.push({
+          pathname: '/components/userProfile',
+          query: { data: JSON.stringify(tokens)}
+        });
     }
     catch(error){
       console.log('the password or username not correct');
