@@ -2,12 +2,29 @@ import React from "react";
 import Link from "next/link";
 import { useState,useEffect } from "react";
 import { TweenMax, Power3, TimelineLite,Expo,gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
 export default function Navbar() {
+  gsap.registerPlugin(ScrollTrigger)
   const closeregister =()=> {
     gsap.to('#sectionsignup',1.5, {top:-1000,ease:Power3.easeInOut,});
     gsap.to('#sectionsignuphospital',1.5, {top:-1000,ease:Power3.easeInOut,});
     gsap.to('#sectionlogin',1.5, {top:-1000,ease:Power3.easeInOut,});
   }
+  useEffect(() => {
+    gsap.to(".navbar", {
+      backgroundImage:'linear-gradient(#1B1717,#810000, #CE1212)',
+      duration: 1,
+      scrollTrigger: {
+        trigger: "navbar",
+        toggleActions:'restart reverse restart reverse', // onenter onleave onenterback onleaveback
+        start:'22% center',
+        end:'bottom center',
+        markers:true
+
+      }
+    });
+  }, []);
 
   return (
     <>

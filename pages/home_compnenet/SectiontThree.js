@@ -1,13 +1,60 @@
 import React from 'react'
+import { useEffect } from 'react'
+import { TweenMax, Power3, TimelineLite,Expo,gsap } from "gsap";
 
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 export default function SectiontThree() {
+
+   gsap.registerPlugin(ScrollTrigger)
+  
+      useEffect(() => {
+
+
+        gsap.from("#imageone",1.5, {
+         
+          scrollTrigger: {
+            trigger: "#imageone",
+            toggleActions:'restart reverse restart reverse', // onenter onleave onenterback onleaveback
+            start:'top center',
+            end:'bottom center'
+
+          },
+          x: -500,
+          autoAlpha: 0,
+          overwrite: "auto"
+          // ease: Power3.easeInOut,
+        });
+        gsap.from("#imagethree",1.5, {
+         
+          scrollTrigger: {
+            trigger: "#imagethree",
+            toggleActions:'restart reverse restart reverse', // onenter onleave onenterback onleaveback
+            start:'20% center',
+            end:'180% center'
+          },
+          y: -500,
+          autoAlpha: 0,
+          overwrite: "auto"
+          // ease: Power3.easeInOut,
+        });
+      }, []);
   return (
     <>
 
-      <section className="relative pb-40 mt-48 bg-white md:mt-40" id='thirdCircle'>
+      <section className="relative pb-40 mt-48 bg-white md:mt-40" id='sectiondata'>
 
         <div className="container px-4 pt-48 pb-32 mx-auto">
           <div className="flex flex-wrap items-center">
+            
+
+            <div className="w-full px-4 pt-24 mr-auto md:w-6/12 md:pt-0" id="imageone">
+              <img
+                alt="..."
+                className="max-w-full shadow-xl"
+                id="section3img"
+                src="/img/savelife.svg"
+              />
+            </div>
             <div id="section3" className="w-full px-12 ml-auto md:w-5/12 md:px-4">
               <div className="md:pr-12">
                 <div className="inline-flex mb-6 shadow-lg text-blueGray-500 ">
@@ -20,15 +67,6 @@ export default function SectiontThree() {
                   Safe blood saves lives. Blood is needed by women with complications during pregn​ancy and childbirth, children with severe anaemia, often resulting from malaria or malnutrition, accident victims and surgical and cancer patients.
                 </p>
               </div>
-            </div>
-
-            <div className="w-full px-4 pt-24 mr-auto md:w-6/12 md:pt-0">
-              <img
-                alt="..."
-                className="max-w-full shadow-xl"
-                id="section3img"
-                src="/img/savelife.svg"
-              />
             </div>
           </div>
         </div>
@@ -52,9 +90,9 @@ export default function SectiontThree() {
             <div className="w-full px-4 pt-24 mr-auto md:w-6/12 md:pt-0">
               <img
                 alt="..."
-                className="max-w-full shadow-xl"
+                className="w-full shadow-xl "
                 id="section3img"
-                src="/img/thank.jpg"
+                src="/img/data.png"
               />
             </div>
           </div>
@@ -62,6 +100,14 @@ export default function SectiontThree() {
 
         <div className="container px-4 pt-48 pb-32 mx-auto">
           <div className="flex flex-wrap items-center">
+          <div className="w-full px-4 pt-24 mr-auto md:w-6/12 md:pt-0" id='imagethree'>
+              <img
+                alt="..."
+                className="max-w-full shadow-xl"
+                id="section3img"
+                src="/img/emergency.svg"
+              />
+            </div>
             <div id="section3" className="w-full px-12 ml-auto md:w-5/12 md:px-4">
               <div className="md:pr-12">
               <div className="inline-flex mb-6 shadow-lg text-blueGray-500 ">
@@ -75,14 +121,7 @@ export default function SectiontThree() {
               </div>
             </div>
 
-            <div className="w-full px-4 pt-24 mr-auto md:w-6/12 md:pt-0">
-              <img
-                alt="..."
-                className="max-w-full shadow-xl"
-                id="section3img"
-                src="/img/emergency.svg"
-              />
-            </div>
+            
           </div>
         </div>
 

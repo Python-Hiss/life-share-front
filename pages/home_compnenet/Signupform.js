@@ -31,9 +31,9 @@ export default function Signupform() {
       <section id="sectionsignup">
         <div className="container px-4 mx-auto" id="divsignup">
           <div className="flex items-center content-center justify-center">
-            <div className="w-full px-4 lg:w-6/12">
+            <div className="w-full px-4 mt-40 lg:w-6/12">
               <div className="relative flex flex-col w-full min-w-0 mb-6 break-words border-0 rounded-lg shadow-lg bg-blueGray-200 frombakc">
-                <div className="flex-auto px-4 py-10 pt-0 mt-20 lg:px-10">
+                <div className="flex-auto px-4 py-10 pt-0 lg:px-20">
                   <div className="mt-6 text-center">
                     <button
                       className="w-full px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-800 active:bg-blueGray-600 hover:shadow-lg focus:outline-none"

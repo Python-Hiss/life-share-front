@@ -21,20 +21,7 @@ const  Homa_page =()=> {
         gsap.from(".logoimage", 2, {delay: 0.6, y: 40,  scale:(-4,0),   ease: Expo.easeInOut }); 
       }, []);
 
-      gsap.registerPlugin(ScrollTrigger)
-  
-      useEffect(() => {
-        gsap.to("#thirdCircle", {
-          x: 100,
-          duration: 2,
-          ease: "bounce",
-          delay: 1,
-          scrollTrigger: {
-            trigger: "#thirdCircle",
-            markers: true
-          }
-        });
-      }, []);
+     
        
     return (
         <>
