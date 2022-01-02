@@ -20,8 +20,6 @@ export default function Navbar() {
         toggleActions:'restart reverse restart reverse', // onenter onleave onenterback onleaveback
         start:'22% center',
         end:'bottom center',
-        markers:true
-
       }
     });
   }, []);
