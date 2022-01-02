@@ -1,9 +1,13 @@
 import { useState } from "react";
 import axios from "axios";
+import { comment } from "postcss";
+import { Component } from "react/cjs/react.production.min";
+// import 'styles/form.css'
+// import FileUpload from "./components/FileUpload"
 function EditForm(props) {
   const [first_name, setFirstName] = useState(props.result.first_name);
   const [last_name, setLastName] = useState(props.result.last_name);
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState(props.result.image);
   const [username, setUsername] = useState(props.result.username);
   const [email, setEmail] = useState(props.result.email);
   const [age, setAge] = useState(props.result.age);
@@ -14,31 +18,38 @@ function EditForm(props) {
     props.result.chronic_diseases
   );
   const [date, setDate] = useState(props.result.data);
-  const submitHandler = async (e) => {
+  const handlesubmit = async (e) => {
+    let data = new FormData();
     e.preventDefault();
-    let updatedData = {
-      password: props.result.password,
-      first_name: first_name,
-      last_name: last_name,
-      username: username,
-      email: email,
-      age: age,
-      blood_type: blood_type,
-      phone_number: phone_number,
-      location: location,
-      chronic_diseases: chronic_diseases,
-      data: date,
-      donate: props.result.donate,
-      group: 2,
-      image: props.result.image,
-    };
-    await axios.put("http://127.0.0.1:8000/account/yaseen", updatedData).then(res =>{
-        console.log(res.data)
+    data.append("first_name", e.target.firstname.value);
+    data.append("last_name", e.target.lastname.value);
+    data.append("username", e.target.username.value);
+    data.append("email", e.target.email.value);
+    // data.append("password",e.target.password.value)
+    data.append("age", e.target.age.value);
+    data.append("image", e.target.img.files[0]);
+    data.append("blood_type", e.target.blood_type.value);
+    data.append("phone_number", e.target.phone_number.value);
+    data.append("location", e.target.location.value);
+    data.append("chronic_diseases", chronic_diseases);
+    data.append("data", e.target.date.value);
+    let url = "http://127.0.0.1:8000/account/yaseen";
+    console.log(e.target.img.files[0]);
+    const create = axios.put(url, data, {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    }).then(res =>{
+      props.setResult(res.data)
+
     });
+    props.setEditForm(false)
   };
+
   return (
     <div>
-      <form action="">
+      <h1 className="text-center text-4xl text-blue-900">Update Personal Information</h1>
+      <form action="" onSubmit={handlesubmit} id="form-of-user">
         <label htmlFor="">First Name</label>
         <input
           type="text"
@@ -46,6 +57,7 @@ function EditForm(props) {
           onChange={(e) => {
             setFirstName(e.target.value);
           }}
+          name="firstname"
         />
         <br />
         <label htmlFor="">Last Name</label>
@@ -55,18 +67,17 @@ function EditForm(props) {
           onChange={(e) => {
             setLastName(e.target.value);
           }}
+          name="lastname"
         />
         <br />
         <label htmlFor="">Image</label>
         <input
-          type="image"
-          src="https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F61688aa1d4a8658c3f4d8640%2FAntonio-Juliano%2F0x0.jpg%3Ffit%3Dscale"
-          alt="Submit"
-          width="48"
-          height="48"
-          onChange={(e) => {
-            setImage(e.target.value);
+          type="file"
+          ref={(input) => {
+            Component.inpuElement = input;
           }}
+          accept="image/*"
+          name="img"
         />
         <br />
         <label htmlFor="">User Name</label>
@@ -76,6 +87,7 @@ function EditForm(props) {
           onChange={(e) => {
             setUsername(e.target.value);
           }}
+          name="username"
         />
         <br />
         <label htmlFor="">Email</label>
@@ -85,6 +97,7 @@ function EditForm(props) {
           onChange={(e) => {
             setEmail(e.target.value);
           }}
+          name="email"
         />
         <br />
         <label htmlFor="">Age</label>
@@ -94,6 +107,7 @@ function EditForm(props) {
           onChange={(e) => {
             setAge(e.target.value);
           }}
+          name="age"
         />
         <br />
         <label htmlFor="">Blood Type</label>
@@ -103,6 +117,7 @@ function EditForm(props) {
           onChange={(e) => {
             setBloodType(e.target.value);
           }}
+          name="blood_type"
         />
         <br />
         <label htmlFor="">Phone Number</label>
@@ -112,6 +127,7 @@ function EditForm(props) {
           onChange={(e) => {
             setPhoneNumber(e.target.value);
           }}
+          name="phone_number"
         />
         <br />
         <label htmlFor="">Location</label>
@@ -121,17 +137,22 @@ function EditForm(props) {
           onChange={(e) => {
             setLocation(e.target.value);
           }}
+          name="location"
         />
         <br />
-        <label htmlFor="">Chronic Diseasese</label>
-        <input
-          type="checkbox"
-          defaultValue={props.result.chronic_diseases}
-          onChange={(e) => {
-            setChronicDiseases(e.target.checked);
-          }}
-        />
-        <br />
+        <div id="cd">
+          <label htmlFor="">Chronic Diseasese</label>
+          <input
+            type="checkbox"
+            defaultValue={props.result.chronic_diseases}
+            onChange={(e) => {
+              setChronicDiseases(e.target.checked);
+            }}
+            name="chronic_diseases"
+          />
+        </div>
+
+        {/* <br /> */}
         <label htmlFor="">Date of Last Donation</label>
         <input
           type="date"
@@ -139,11 +160,14 @@ function EditForm(props) {
           onChange={(e) => {
             setDate(e.target.value);
           }}
+          name="date"
         />
         <button
           className="px-3 py-4 mt-8 uppercase bg-gray-500 rounded text-green hover:bg-gray-600 text-gray-50"
-          onClick={submitHandler}
-        >Submit</button>
+          type="submit"
+        >
+          Save Changes
+        </button>
       </form>
     </div>
   );
