@@ -28,6 +28,7 @@ export default function Navbar() {
             className="divnavbar">
             <ul style={{display: 'flex'}} >
               <li  id="textdocs">
+
                   Home Page
               </li>
               <li  id="textdocs">

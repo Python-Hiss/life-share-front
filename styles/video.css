@@ -102,3 +102,49 @@
   top: 0;
   left: 0;
 }
+
+#section3{
+  background-image: linear-gradient(#bb0a1e, #6d7c8e);
+  width:45%;
+  height: 60vh;
+  background-position: 50% 50%;
+  transition-duration: 0.5s;
+  margin-right: 50px;
+
+}
+#section3:hover{
+  box-shadow: 2px 2px 8px 0 rgb(128 128 128) !important;
+  border-radius: 27px !important;
+  transform: translateX(0px) translateY(-5px) scale(1.1) !important;
+  transition-duration: 1s;
+  
+}
+
+
+#section3img:hover{
+  box-shadow: 2px 2px 8px 0 rgb(128 128 128) !important;
+  border-radius: 27px !important;
+  transform: translateX(0px) translateY(-5px) scale(1.1) !important;
+  transition-duration: 1s;
+  border: 20px solid transparent;
+
+}
+
+.u-file-icon img {
+  object-fit: contain;
+  width: 8%;
+  height: 8%;
+  border-style: none;
+  
+}
+
+#text{
+  margin-left: 30px
+}
+
+
+#footer{
+  background-image: linear-gradient(#bb0a1e, #6d7c8e);
+  background-position: 50% 50%;
+  
+}
