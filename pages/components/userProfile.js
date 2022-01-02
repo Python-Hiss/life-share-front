@@ -1,13 +1,19 @@
 import { useState } from "react";
 import EditForm from "./editForm";
 import axios from "axios";
-
-function UserProfile() {
+import { useRouter } from 'next/router'
+function UserProfile(props) {
+  const router = useRouter();
+  let profile = JSON.parse(router.query.data)
   const [result, setResult] = useState([]);
   const [editForm, setEditForm] = useState(false);
   let submitHandler = async (e) => {
     e.preventDefault();
-    await axios.get("http://127.0.0.1:8000/account/yaseen").then((data) => {
+    const config = {
+      headers:{'Authorization':`Bearer ${profile.access}`}
+  }
+    await axios.get(`http://127.0.0.1:8000/account/${profile.username}`,config).then((data) => {
+      console.log(data.data);
       setResult(data.data);
       setEditForm(true);
     });

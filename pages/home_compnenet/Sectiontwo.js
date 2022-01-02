@@ -7,20 +7,17 @@ import Signupform from "./Signupform";
 
 
 export default function Sectiontwo() {
-
-  useEffect(() => {
-    TweenMax.from('.imagenav',1.5, { y:1000  ,opacity: 0, delay:1,ease:Power3.easeInOut});
-    TweenMax.from('.contenttext',1, { x:-200 , opacity: 0 , delay:0.4,ease:Power3.easeInOut})
-  }, []);
     const videoRef = useRef();
-
     useEffect(() => {
         setTimeout(()=>{
-            videoRef.current.play()
+          videoRef.current.play()
         },5000)
     }, []);
     const showregister =()=> {
-      TweenMax.to('#sectionsignup',1.5, {zIndex:10,top:0,ease:Power3.easeInOut});
+      gsap.to('#sectionsignup',1.5, {top:0,ease:Power3.easeInOut});
+    }
+    const showrlogin =()=> {
+      gsap.to('#sectionlogin',1.5, {top:0,ease:Power3.easeInOut});
     }
   return (
     <>
@@ -48,9 +45,10 @@ export default function Sectiontwo() {
                   
                
                 <div
-                  className="px-6 py-4 mb-1 ml-1 mr-1 text-sm font-bold text-center text-white uppercase border-4 border-white rounded shadow outline-none github-star focus:outline-none bg-blueGray-700 active:bg-blueGray-600 hover:shadow-lg hover:bg-red-800"
+                  className="px-6 py-4 mb-1 ml-1 mr-1 text-sm font-bold text-center text-white uppercase border-4 border-white rounded shadow outline-none cursor-pointer github-star focus:outline-none bg-blueGray-700 active:bg-blueGray-600 hover:shadow-lg hover:bg-red-800"
                   target="_blank"
                   style={{width:'150px'}}
+                  onClick={showrlogin}
                 >
                   Login
                 </div>
@@ -66,7 +64,6 @@ export default function Sectiontwo() {
 
       
      
-      <Signupform/>
 
     </>
   );

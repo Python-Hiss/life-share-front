@@ -5,21 +5,6 @@ import { TweenMax, Power3, TimelineLite,Expo,gsap } from "gsap";
 
 import Navbar from "./Navbar";
 export default function Signupformhospital() {
-     useEffect(() => {
-    TweenMax.staggerFrom('.divnavbar ul li',1,{
-      delay:1.4,
-      opacity:0,
-      y:-20,
-      ease:Power3.easeInOut 
-   },0.2)
-   TweenMax.from(".logoimage", 2, {
-    delay: 0.6,
-    y: 40,
-    scale:(-4,0),
-    ease: Expo.easeInOut
-  });
-
-  }, []);  
 
   const handlesubmitsignup =async (e) => {
     let data = new FormData()
@@ -47,39 +32,13 @@ export default function Signupformhospital() {
     console.log(create);
   };
   return (
-      <>
-      <Navbar/>
-      
-    <section id="sectionsignup">
+      <>      
+    <section id="sectionsignuphospital">
       <div className="container h-full px-4 mx-auto" id="divsignup">
-        <div className="flex items-center content-center justify-center h-full">
+        <div className="flex items-center content-center justify-center ">
           <div className="w-full px-4 lg:w-6/12" style={{height:'50vh'}}>
             <div className="relative flex flex-col w-full min-w-0 mb-6 break-words border-0 rounded-lg shadow-lg bg-blueGray-200">
-              <div className="px-6 py-6 mb-0 rounded-t">
-                <div className="mb-3 text-center">
-                  <h6 className="text-sm font-bold text-blueGray-500">
-                    Sign up with
-                  </h6>
-                </div>
-                <div className="text-center btn-wrapper">
-                  <button
-                    className="inline-flex items-center px-4 py-2 mb-1 mr-2 text-xs font-normal font-bold uppercase transition-all duration-150 ease-linear bg-white rounded shadow outline-none active:bg-blueGray-50 text-blueGray-700 focus:outline-none hover:shadow-md"
-                    type="button"
-                  >
-                    <img alt="..." className="w-5 mr-1" src="/img/github.svg" />
-                    Github
-                  </button>
-                  <button
-                    className="inline-flex items-center px-4 py-2 mb-1 mr-1 text-xs font-normal font-bold uppercase transition-all duration-150 ease-linear bg-white rounded shadow outline-none active:bg-blueGray-50 text-blueGray-700 focus:outline-none hover:shadow-md"
-                    type="button"
-                  >
-                    <img alt="..." className="w-5 mr-1" src="/img/google.svg" />
-                    Google
-                  </button>
-                </div>
-                <hr className="mt-6 border-b-1 border-blueGray-300" />
-              </div>
-              <div className="flex-auto px-4 py-10 pt-0 lg:px-10">
+              <div className="flex-auto px-4 py-10 pt-0 mt-20 lg:px-10">
                 <div className="mb-3 font-bold text-center text-blueGray-400">
                   <small>Or sign up with credentials</small>
                 </div>
