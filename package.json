@@ -9,6 +9,7 @@
     "@popperjs/core": "^2.11.0",
     "axios": "^0.24.0",
     "gsap": "^3.9.1",
+    "jsonwebtoken": "^8.5.1",
     "next": "latest",
     "next-images": "^1.8.4",
     "prop-types": "^15.8.0",
