@@ -11,15 +11,21 @@ export default function Signupform() {
   const handlesubmitsignup = async (e) => {
     let data = new FormData();
     e.preventDefault();
-
+    const url =' http://127.0.0.1:8000/'
+    let blood = {
+      blood_type:e.target.blood_type.value,
+      description : e.target.description.value
+    }
+    const create_blood =await axios.post(`${url}blood/add/`, blood)
+    
     data.append("first_name", e.target.firstname.value);
     data.append("username", e.target.username.value);
     data.append("email", e.target.email.value);
     data.append("password", e.target.password.value);
-    data.append("blood_type", e.target.blood_type.value);
-    data.append("roles", "Donater");
-    let url = "http://127.0.0.1:8000/donater/signup/";
-    const create = axios.post(url, data, {
+    data.append("blood_type", create_blood.data.id);
+    data.append("roles", "Doner");
+    let urls = `${url}accounts/donater/signup/`;
+    const create = axios.post(urls, data, {
       headers: {
         "content-type": "multipart/form-data",
       },
@@ -47,6 +53,7 @@ export default function Signupform() {
                     <hr className="mt-6 border-b-1 border-blueGray-300" />
                   </div>
                   <form onSubmit={handlesubmitsignup}>
+                    <div className="grid grid-cols-[1fr_1fr] gap-3">
                       <div className="relative w-full mb-3 ">
                         <label
                           className="block mb-2 text-xs font-bold uppercase text-blueGray-600"
@@ -61,21 +68,21 @@ export default function Signupform() {
                           placeholder="First Name"
                         />
                       </div>
-                    <div className="relative w-full mb-3">
-                      <label
-                        className="block mb-2 text-xs font-bold uppercase text-blueGray-600"
-                        htmlFor="grid-password"
-                      >
-                        User Name
-                      </label>
-                      <input
-                        type="text"
-                        name="username"
-                        className="w-full h-10 px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
-                        placeholder="User Name"
-                      />
+                      <div className="relative w-full mb-3">
+                        <label
+                          className="block mb-2 text-xs font-bold uppercase text-blueGray-600"
+                          htmlFor="grid-password"
+                        >
+                          User Name
+                        </label>
+                        <input
+                          type="text"
+                          name="username"
+                          className="w-full h-10 px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
+                          placeholder="User Name"
+                        />
+                      </div>
                     </div>
-
                     <div className="relative w-full mb-3">
                       <label
                         className="block mb-2 text-xs font-bold uppercase text-blueGray-600"
@@ -90,34 +97,58 @@ export default function Signupform() {
                         placeholder="Email"
                       />
                     </div>
-
-                    <div className="relative w-full mb-3">
-                      <label
-                        className="block mb-2 text-xs font-bold uppercase text-blueGray-600"
-                        htmlFor="grid-password"
-                      >
-                        Password
-                      </label>
-                      <input
-                        type="password"
-                        name="password"
-                        className="w-full h-10 px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
-                        placeholder="Password"
-                      />
+                    <div className="grid grid-cols-[1fr_1fr] gap-3">
+                      <div className="relative w-full mb-3">
+                        <label
+                          className="block mb-2 text-xs font-bold uppercase text-blueGray-600"
+                          htmlFor="grid-password"
+                        >
+                          Password
+                        </label>
+                        <input
+                          type="password"
+                          name="password"
+                          className="w-full h-10 px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
+                          placeholder="Password"
+                        />
+                      </div>
+                      <div className="relative w-full mb-3">
+                        <label
+                          className="block mb-2 text-xs font-bold uppercase text-blueGray-600"
+                          htmlFor="grid-password"
+                        >
+                          Confirm Password
+                        </label>
+                        <input
+                          type="password"
+                          name="confirmpassword"
+                          className="w-full h-10 px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
+                          placeholder="Confirm Password"
+                        />
+                      </div>
                     </div>
+                    <div className="grid grid-cols-[1fr_1fr] gap-3">
                     <div className="relative w-full mb-3">
                       <label
                         className="block mb-2 text-xs font-bold uppercase text-blueGray-600"
                         htmlFor="grid-password"
                       >
-                        Confirm Password
+                        blood_type
                       </label>
-                      <input
-                        type="password"
-                        name="confirmpassword"
+                      <select
+                        id="cars"
+                        name="blood_type"
                         className="w-full h-10 px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
-                        placeholder="Confirm Password"
-                      />
+                      >
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                      </select>
                     </div>
                     <div className="relative w-full mb-3">
                       <label
@@ -126,11 +157,10 @@ export default function Signupform() {
                       >
                         blood_type
                       </label>
-                      <input
-                        type="text"
-                        name="blood_type"
-                        className="w-full h-10 px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
-                      />
+                      <textarea name="description" rows="10" cols="30"  className="w-full h-10 px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring">
+                        No Comment
+                      </textarea>
+                    </div>
                     </div>
                     <div className="mt-6 text-center">
                       <button

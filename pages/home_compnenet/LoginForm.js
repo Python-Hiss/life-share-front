@@ -1,10 +1,4 @@
 import React from 'react'
-import Link from "next/link";
-import Navbar from './Navbar';
-import { useState,useEffect ,useReducer } from "react";
-import axios from 'axios';
-import { TweenMax, Power3, TimelineLite,Expo,gsap } from "gsap";
-import UserProfile from '../components/userProfile';
 import { useAuth } from '../../contexts/auth';
 import { useRouter } from 'next/router';
 export default function LoginForm() {
@@ -18,10 +12,18 @@ export default function LoginForm() {
     try{
         
         await login(username, password)
-        // router.push({
-        //   pathname: '/components/userProfile',
-        //   query: { data: JSON.stringify(tokens)}
-        // });
+        if (tokens.Role == 'Doner' || tokens.Role == 'Patient'){
+        router.push({
+          pathname: '/Donar_component/userProfile',
+        });
+        }
+        
+        if (tokens.Role == 'Hospital'){
+        router.push({
+          pathname: '/Hospital_component/hospitalProfile',
+        });
+        }
+        
     }
     catch(error){
       console.log('the password or username not correct');
@@ -52,7 +54,6 @@ export default function LoginForm() {
               <img alt="..." className="w-5 mr-1" src="/img/github.svg" />
               Github
             </button>
-            <Link href="/components/userProfile">
             <button
               className="inline-flex items-center px-4 py-2 mb-1 mr-1 text-xs font-normal font-bold uppercase transition-all duration-150 ease-linear bg-white rounded shadow outline-none active:bg-blueGray-50 text-blueGray-700 focus:outline-none hover:shadow-md"
               type="button"
@@ -60,7 +61,6 @@ export default function LoginForm() {
               <img alt="..." className="w-5 mr-1" src="/img/google.svg" />
               Google
             </button>
-            </Link>
           </div>
           <hr className="mt-6 border-b-1 border-blueGray-300" />
         </div>
@@ -131,11 +131,9 @@ export default function LoginForm() {
           </a>
         </div>
         <div className="w-1/2 text-right">
-          <Link href="/auth/register">
             <a href="#pablo" className="text-blueGray-200">
               <small>Create new account</small>
             </a>
-          </Link>
         </div>
       </div>
     </div>

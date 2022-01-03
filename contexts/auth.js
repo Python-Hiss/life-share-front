@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 import axios from 'axios'
 const baseUrl = "http://127.0.0.1:8000/"
 // const baseUrl = process.env.NEXT_PUBLIC_API_URL;
-const tokenUrl = baseUrl + 'donater/auth/';
+const tokenUrl = baseUrl + 'accounts/donater/auth/';
 
 const AuthContext = createContext();
 
@@ -21,7 +21,7 @@ export function AuthProvider(props) {
         login,
         logout,
     });
-
+    
     async function login(username, password) {
 
         const response = await axios.post(tokenUrl, { username, password });
@@ -30,15 +30,11 @@ export function AuthProvider(props) {
 
         const newState = {
             tokens: response.data,
-            // user: {
-            //     username: response.data.username,
-            //     id: decodedAccess.user_id
-            // },
         }
 
         setState(prevState => ({ ...prevState, ...newState }));
+        
     }
-
     function logout() {
         const newState = {
             tokens: null,
