@@ -12,7 +12,7 @@ export default function LoginForm() {
     try{
         
         await login(username, password)
-        if (tokens.Role == 'Doner'){
+        if (tokens.Role == 'Doner' || tokens.Role == 'Patient'){
         router.push({
           pathname: '/Donar_component/userProfile',
         });

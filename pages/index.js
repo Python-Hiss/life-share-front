@@ -4,13 +4,14 @@ import HospitalProfile from './Hospital_component/hospitalProfile'
 import UserProfile from './Donar_component/userProfile'
 import { useEffect,useRef } from 'react'
 import Testfrom from './TestForm'
+import { useAuth } from '../contexts/auth'
 
 export default function Home() {
-  // const circleRef = useRef(null);
+  const {tokens} = useAuth()
 
   return (
     <>
-    <Homa_page/>
+    {<Homa_page/>}
     {/* <Testfrom/> */}
     </>
   )
