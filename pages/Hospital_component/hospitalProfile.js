@@ -1,9 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
 import { GlobeAltIcon, SearchIcon } from "@heroicons/react/outline";
-import Form2 from "./Form2";
 import Table from "./Table2";
-
+import emailjs from 'emailjs-com';
 function HospitalProfile() {
   const [result, setResult] = useState([]);
   const url = 'http://127.0.0.1:8000/'
@@ -13,21 +12,37 @@ function HospitalProfile() {
     let area = e.target.area.value
     let urls = `${url}accounts/blood/${data}/`
     e.preventDefault();
-    const blood_data = await axios.get(urls)
-      let filteredData = blood_data.data.filter(
-        (item) =>  item.address.city.city == city
-      );
-      if (area){
-        filteredData = filteredData.filter(
-          (item) =>  item.address.area.area == area
-        );
-      }
-      console.log(filteredData);
-      setResult(filteredData);
+    // const blood_data = await axios.get(urls)
+    //   let filteredData = blood_data.data.filter(
+    //     (item) =>  item.address.city.city == city
+    //   );
+    //   if (area){
+    //     filteredData = filteredData.filter(
+    //       (item) =>  item.address.area.area == area
+    //     );
+    //   }
+    //   console.log(filteredData);
+    //   setResult(filteredData);
     // });
+    console.log(e.target);
   };
+
+
+  function sendEmail (e) {
+
+    emailjs.sendForm('service_3ywcai5', 'template_kz4wyy7',data , 'user_0EuDpkMo2DsYTJbm2k8fz')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+     
+    }
+
+    
   return (
     <>
+    
       <div className=" bg-top p-5 bg-[length:100%_50%]  bg-[url('https://www.solidbackgrounds.com/images/3840x2160/3840x2160-dark-red-solid-color-background.jpg')] bg-no-repeat ">
         <img
           src="https://cdn.britannica.com/w:400,h:300,c:crop/12/130512-004-AD0A7CA4/campus-Riverside-Ottawa-The-Hospital-Ont.jpg"
@@ -36,6 +51,7 @@ function HospitalProfile() {
         />
       </div>
       <h1 className="text-4xl text-center text-blue-900">Isteqlal</h1>
+      <button onClick={sendEmail}>send email </button>
       <div>
         <div className="flex">
           <GlobeAltIcon className="h-9 w-9 top-1 right-1 " />

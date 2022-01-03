@@ -4,12 +4,13 @@ import HospitalProfile from './Hospital_component/hospitalProfile'
 import UserProfile from './Donar_component/userProfile'
 import { useEffect,useRef } from 'react'
 import Testfrom from './TestForm'
-
+import Email from './Hospital_component/email'
 export default function Home() {
   // const circleRef = useRef(null);
 
   return (
     <>
+    {/* <Email/> */}
     <Homa_page/>
     {/* <Testfrom/> */}
     </>

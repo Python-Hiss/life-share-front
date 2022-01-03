@@ -1,17 +1,13 @@
 import React from 'react'
 import Navbar from './Navbar'
 import Sectiontwo from './Sectiontwo'
-// import LoginForm from './LoginForm'
 import SectiontThree from './SectiontThree'
 import Footer from './Footer'
-// import Signupform from './Signupform'
 import LoginForm from './LoginForm'
 import Signupform from './Signupform'
 import Signupformhospital from './Signupfromhospital'
 import { useEffect } from 'react'
-import { TweenMax, Power3, TimelineLite,Expo,gsap } from "gsap";
-
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { TweenMax, Power3,Expo,gsap } from "gsap";
 
 const  Homa_page =()=> {
     useEffect(() => {
@@ -27,8 +23,6 @@ const  Homa_page =()=> {
         <>
             <Navbar/>
             <Sectiontwo/>
-            {/* <LoginForm/> */}
-            {/* <Signupform/> */}
             <SectiontThree/>
             <Footer/>
             <LoginForm/>
