@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Homa_page from './home_compnenet/Homa_page'
+import HomePage from './home_compnenet/HomePage'
 import HospitalProfile from './components/hospitalProfile'
 import UserProfile from './components/userProfile'
 import { useEffect,useRef } from 'react'
@@ -10,7 +10,8 @@ export default function Home() {
 
   return (
     <>
-    <Homa_page/>
+    <HomePage/>
+
     </>
   )
 }

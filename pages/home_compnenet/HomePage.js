@@ -3,6 +3,9 @@ import Navbar from './Navbar'
 import Sectiontwo from './Sectiontwo'
 // import LoginForm from './LoginForm'
 import SectiontThree from './SectiontThree'
+import SectionFour from './SectionFour'
+import SectionFive from './SectionFive'
+
 import Footer from './Footer'
 // import Signupform from './Signupform'
 import LoginForm from './LoginForm'
@@ -11,9 +14,10 @@ import Signupformhospital from './Signupfromhospital'
 import { useEffect } from 'react'
 import { TweenMax, Power3, TimelineLite,Expo,gsap } from "gsap";
 
+
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
-const  Homa_page =()=> {
+const  HomePage =()=> {
     useEffect(() => {
         gsap.from('.imagenav',1.5, { y:1000  ,opacity: 0, delay:1,ease:Power3.easeInOut});
         gsap.from('.contenttext',1, { x:-200 , opacity: 0 , delay:0.4,ease:Power3.easeInOut});
@@ -30,6 +34,8 @@ const  Homa_page =()=> {
             {/* <LoginForm/> */}
             {/* <Signupform/> */}
             <SectiontThree/>
+            <SectionFour/>
+            {/* <SectionFive/> */}
             <Footer/>
             <LoginForm/>
             <Signupform/>
@@ -37,4 +43,4 @@ const  Homa_page =()=> {
         </>
     )
 }
-export default Homa_page
+export default HomePage

@@ -88,11 +88,11 @@ export default function SectiontThree() {
             </div>
 
             <div className="w-full px-4 pt-24 mr-auto md:w-6/12 md:pt-0">
-              <img
+              <img style={{height: '535px', width: '1500px'}}
                 alt="..."
                 className="w-full shadow-xl "
                 id="section3img"
-                src="/img/data.png"
+                src="/img/connect.svg"
               />
             </div>
           </div>
@@ -154,6 +154,7 @@ export default function SectiontThree() {
 
 
       </section>
+      
 
    
     </>

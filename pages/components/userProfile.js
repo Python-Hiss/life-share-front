@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import EditForm from "./editForm";
 import axios from "axios";
 import { useRouter } from 'next/router'
-import { PencilAltIcon } from "@heroicons/react/outline";
+// import { PencilAltIcon } from "@heroicons/react/outline";
 function UserProfile(props) {
   // const router = useRouter();
   // let profile = JSON.parse(router.query.data)
