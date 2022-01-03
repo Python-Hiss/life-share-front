@@ -127,7 +127,7 @@ export default function LoginForm() {
           <a
             href="#pablo"
           >
-            <small>Forgot password?</small>
+            <small id="small">Forgot password?</small>
           </a>
         </div>
         <div className="w-1/2 text-right">

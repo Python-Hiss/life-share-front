@@ -31,8 +31,8 @@ const  HomePage =()=> {
         <>
             <Navbar/>
             <Sectiontwo/>
-            {/* <LoginForm/> */}
-            {/* <Signupform/> */}
+            <LoginForm/>
+            <Signupform/>
             <SectiontThree/>
             <SectionFour/>
             {/* <SectionFive/> */}
