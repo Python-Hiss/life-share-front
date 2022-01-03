@@ -5,13 +5,16 @@ import UserProfile from './Donar_component/userProfile'
 import { useEffect,useRef } from 'react'
 import Testfrom from './TestForm'
 import { useAuth } from '../contexts/auth'
+import Newsfeed from './Newsfeed'
 
 export default function Home() {
   const {tokens} = useAuth()
 
   return (
     <>
-    {<Homa_page/>}
+    
+    <Newsfeed/>
+    {/* {<Homa_page/>} */}
     {/* <Testfrom/> */}
     </>
   )

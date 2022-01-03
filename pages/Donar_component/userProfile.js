@@ -7,7 +7,7 @@ import { Result } from "postcss";
 import UserInfo from "../home_compnenet/UserInfo";
 
 function UserProfile() {
-  const { login, tokens } = useAuth();
+  const {tokens } = useAuth();
   let role = {
     Doner: "donater",
     Patient: "patient",
@@ -38,10 +38,10 @@ function UserProfile() {
           <img
             src={result.image}
             alt="person"
-            className="rounded-full h-80 w-80 object-cover m-auto"
+            className="object-cover m-auto rounded-full h-80 w-80"
           />
         </div>
-        <h1 className="text-center text-4xl text-blue-900">
+        <h1 className="text-4xl text-center text-blue-900">
           {result.first_name}
         </h1>
 
@@ -51,7 +51,7 @@ function UserProfile() {
               <UserInfo result={result} submitHandler={submitHandler} />
 
               <button
-                className=" h-9 w-36 ml-52 mt-12 rounded-lg border-2 border-red-600 border-dashed text-red-600"
+                className="mt-12 text-red-600 border-2 border-red-600 border-dashed rounded-lg  h-9 w-36 ml-52"
                 onClick={deleteHandler}
               >
                 Remove Account
