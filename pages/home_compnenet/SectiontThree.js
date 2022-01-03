@@ -92,7 +92,7 @@ export default function SectiontThree() {
                 alt="..."
                 className="w-full shadow-xl "
                 id="section3img"
-                src="/img/connect.svg"
+                src="/img/thank.png"
               />
             </div>
           </div>

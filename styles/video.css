@@ -238,7 +238,7 @@
 /***********************************************************************************************/
 .section-content-block {
   padding: 100px 0 100px 0;
-  background: #FFFFFF;
+  background: #EEEBDD
 }
 .section-heading-wrapper {
   margin-bottom: 32px;
@@ -306,7 +306,7 @@
 
 
 .section-heading:after {
-  background-image: url(https://scontent.famm7-1.fna.fbcdn.net/v/t39.30808-6/271307708_980558569198101_4077459980723579262_n.jpg?_nc_cat=105&_nc_rgb565=1&ccb=1-5&_nc_sid=730e14&_nc_ohc=7cEV2HNtWyAAX-oBvHU&_nc_ht=scontent.famm7-1.fna&oh=00_AT9NvHlmZkpDlMhAmnP6FnfBs68OC1YLIiLTOxQeNrHxsg&oe=61D7228A);
+  background-image: url(/img/newImg.png);
   background-position: center center;
   background-repeat: no-repeat;
   content: "";
