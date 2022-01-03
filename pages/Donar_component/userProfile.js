@@ -3,12 +3,8 @@ import EditForm from "./editForm";
 import axios from "axios";
 import { useAuth } from "../../contexts/auth";
 import { PencilAltIcon } from "@heroicons/react/outline";
-function UserProfile(props) {
-
-  const { login ,tokens} = useAuth()
-  console.log(tokens);
-  
-
+import UserInfo from "../pages/home_compnenet/UserInfo";
+function UserProfile() {
   const [result, setResult] = useState([]);
   const [editForm, setEditForm] = useState(false);
   let submitHandler = async (e) => {
@@ -39,46 +35,28 @@ function UserProfile(props) {
             className="object-cover m-auto rounded-full h-80 w-80"
           />
         </div>
-        <h1 className="text-4xl text-center text-blue-900">{result.first_name}</h1>
+        <h1 className="text-4xl text-center text-blue-900">
+          {result.first_name}
+        </h1>
+
         <div className="mt-12">
           {!editForm ? (
             <>
-              <div className="bg-[#EEEBDD] rounded-lg p-2 relative w-4/5 m-auto">
-                <h1 className="text-center text-4xl text-red-700 ml-1.5	">
-                  Personal Information
-                </h1>
-                <div className="flex justify-end">
-                  <PencilAltIcon
-                    onClick={submitHandler}
-                    type="submit"
-                    className="absolute w-5 h-5 mt-4 mr-4 top-1 right-1"
-                  />
-                </div>
-                <h2 className=" text-2xl text-[#1B1717] ml-1.5">Location:</h2>
-                <p className="pl-12 text-xl text-[#CE1212]">{result.location}</p>
-
-                <h2 className=" text-2xl text-[#1B1717] ml-1.5	border-t-2 border-white">
-                  Phone Number:
-                </h2>
-                <p className="pl-12 text-xl text-[#CE1212]">{result.phone_number}</p>
-                <h2 className=" text-2xl text-[#1B1717] ml-1.5	border-t-2 border-white">
-                  Email:
-                </h2>
-                <p className="pl-12 text-xl text-[#CE1212]">{result.email}</p>
-                <h2 className=" text-2xl text-[#1B1717] ml-1.5 	border-t-2 border-white">Blood Type:</h2>
-                <p className="pl-12 text-xl text-[#CE1212]">{result.blood_type}</p>
-                <h2 className=" text-2xl text-[#1B1717] ml-1.5 	border-t-2 border-white">Age:</h2>
-                <p className="pl-12 text-xl text-[#CE1212]">{result.age}</p>
-              </div>
+              <UserInfo result={result} submitHandler={submitHandler}/>
+              
               <button
-                className="mt-12 border-t-2 border-white rounded-lg h-9 bg-stone-400 ml-52"
+                className="mt-12 text-red-600 border-2 border-red-600 border-dashed rounded-lg  h-9 w-36 ml-52"
                 onClick={deleteHandler}
               >
                 Remove Account
               </button>
             </>
           ) : (
-            <EditForm result={result} setEditForm={setEditForm} setResult = {setResult} />
+            <EditForm
+              result={result}
+              setEditForm={setEditForm}
+              setResult={setResult}
+            />
           )}
         </div>
       </div>

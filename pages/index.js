@@ -5,6 +5,9 @@ import UserProfile from './Donar_component/userProfile'
 import { useEffect,useRef } from 'react'
 import Testfrom from './TestForm'
 import Email from './Hospital_component/email'
+import UserProfile from '../components/userProfile'
+import NewsFeed from '../components/NewsFeed'
+
 export default function Home() {
   // const circleRef = useRef(null);
 
@@ -13,6 +16,7 @@ export default function Home() {
     {/* <Email/> */}
     <Homa_page/>
     {/* <Testfrom/> */}
+    {/* <NewsFeed/> */}
     </>
   )
 }
