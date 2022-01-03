@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect } from 'react'
-import { TweenMax, Power3, TimelineLite,Expo,gsap } from "gsap";
+import {gsap } from "gsap";
 
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 export default function SectiontThree() {
@@ -35,7 +35,6 @@ export default function SectiontThree() {
           y: -500,
           autoAlpha: 0,
           overwrite: "auto"
-          // ease: Power3.easeInOut,
         });
       }, []);
   return (
@@ -61,7 +60,7 @@ export default function SectiontThree() {
                 </div>
                 
                 <h3  id="text" className="text-3xl font-semibold text-white">
-                <span class="u-file-icon u-icon u-icon-rectangle u-icon-2"><img src="/img/donate.png" alt=""/></span> Why should people donate blood?
+                <span className="u-file-icon u-icon u-icon-rectangle u-icon-2"><img src="/img/donate.png" alt=""/></span> Why should people donate blood?
                 </h3>
                 <p id="text" className="mt-4 text-lg leading-relaxed text-white">
                   Safe blood saves lives. Blood is needed by women with complications during pregn​ancy and childbirth, children with severe anaemia, often resulting from malaria or malnutrition, accident victims and surgical and cancer patients.
@@ -78,7 +77,7 @@ export default function SectiontThree() {
               <div className="inline-flex mb-6 shadow-lg text-blueGray-500 ">
                 </div>
                 <h3  id="text" className="text-3xl font-semibold text-white">
-                <span class="u-file-icon u-icon u-icon-rectangle u-icon-2"><img src="/img/heart.png" alt=""/></span>
+                <span className="u-file-icon u-icon u-icon-rectangle u-icon-2"><img src="/img/heart.png" alt=""/></span>
                   A Happier, Longer Life!
                 </h3>
                 <p id="text" className="mt-4 text-lg leading-relaxed text-white">
@@ -113,7 +112,7 @@ export default function SectiontThree() {
               <div className="inline-flex mb-6 shadow-lg text-blueGray-500 ">
                 </div>
                 <h3  id="text" className="text-3xl font-semibold text-white">
-                <span class="u-file-icon u-icon u-icon-rectangle u-icon-2"><img src="/img/heart2.png" alt=""/></span>
+                <span className="u-file-icon u-icon u-icon-rectangle u-icon-2"><img src="/img/heart2.png" alt=""/></span>
                   A Healthier Heart and Vascular System                </h3>
                   <p id="text" className="mt-4 text-lg leading-relaxed text-white">
                   Regular blood donation is linked to lower blood pressure and a lower risk for heart attacks. “It definitely helps to reduce cardiovascular risk factors,” says Dr. DeSimone.
@@ -132,7 +131,7 @@ export default function SectiontThree() {
               <div className="inline-flex mb-6 shadow-lg text-blueGray-500 ">
                 </div>
                 <h3  id="text" className="text-3xl font-semibold text-white">
-                <span class="u-file-icon u-icon u-icon-rectangle u-icon-2"><img src="/img/give.png" alt=""/></span>
+                <span className="u-file-icon u-icon u-icon-rectangle u-icon-2"><img src="/img/give.png" alt=""/></span>
                 You are someone's Hero!
               </h3>
               <p id="text" className="mt-4 text-lg leading-relaxed text-white">

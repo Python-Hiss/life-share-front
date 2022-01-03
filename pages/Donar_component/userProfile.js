@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import EditForm from "./editForm";
 import axios from "axios";
-import { useRouter } from 'next/router'
+import { useAuth } from "../../contexts/auth";
 import { PencilAltIcon } from "@heroicons/react/outline";
 function UserProfile(props) {
-  // const router = useRouter();
-  // let profile = JSON.parse(router.query.data)
 
-
+  const { login ,tokens} = useAuth()
+  console.log(tokens);
+  
 
   const [result, setResult] = useState([]);
   const [editForm, setEditForm] = useState(false);
