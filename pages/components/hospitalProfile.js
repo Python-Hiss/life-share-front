@@ -1,11 +1,14 @@
 import axios from "axios";
 import { useState } from "react";
-
+import { GlobeAltIcon ,SearchIcon } from "@heroicons/react/outline";
+import Form2 from "../pages/home_compnenet/Form2";
+import Table2 from "../pages/home_compnenet/Table2"
 
 function HospitalProfile() {
   const [result, setResult] = useState([]);
   const [location, setLocation] = useState([]);
   const [bloodType, setBloodType] = useState([]);
+
 
   let locationHandler = (e) => {
     setLocation(e.target.value)
@@ -23,35 +26,26 @@ function HospitalProfile() {
   };
   return (
     <>
-      <div>
+      <div className=" bg-top p-5 bg-[length:100%_50%]  bg-[url('https://www.solidbackgrounds.com/images/3840x2160/3840x2160-dark-red-solid-color-background.jpg')] bg-no-repeat ">
         <img
           src="https://cdn.britannica.com/w:400,h:300,c:crop/12/130512-004-AD0A7CA4/campus-Riverside-Ottawa-The-Hospital-Ont.jpg"
           alt="hospital"
+          className="rounded-full h-80 w-80 object-cover m-auto"
         />
-        <h1>Isteqlal</h1>
+      </div>
+      <h1 className="text-center text-4xl text-blue-900">Isteqlal</h1>
+      <div>
+        <div className="flex">
+          <GlobeAltIcon className="h-9 w-9 top-1 right-1 "/>
+          <a href="https://istiklalhospital.com/">istiqlal-hospital.com</a>
+        </div>
       </div>
 
-      <div>
-        <h2>
-          <a href="https://istiklalhospital.com/">Website</a>
-        </h2>
-      </div>
+      <div id="hospital-form-table">
+      <Form2 locationHandler={locationHandler} bloodTypeHandler={bloodTypeHandler} submitHandler={submitHandler}/>
 
-      <div>
-        <form onSubmit={submitHandler}>
-          <label>Blood Type</label>
-          <input type="text" onChange={bloodTypeHandler} />
-          <label>Location</label>
-          <input type="text" onChange={locationHandler} />
-          <button
-            type="submit"
-            className="px-3 py-4 mt-8 uppercase bg-gray-500 rounded text-green hover:bg-gray-600 text-gray-50"
-          >
-            Search
-          </button>
-        </form>
-
-        <table className="w-5/6 mx-auto mt-6 text-center">
+      <Table2/>
+        {/* <table className="w-5/6 mx-auto mt-6 text-center">
           <thead className="bg-emerald-400 border border-emerald-700 text-left h-8">
             <th className="border border-emerald-700 pl-1">Name</th>
             <th className="border border-emerald-700 pl-1">Location</th>
@@ -79,7 +73,7 @@ function HospitalProfile() {
               );
             })}
           </tbody>
-        </table>
+        </table> */}
       </div>
     </>
   );

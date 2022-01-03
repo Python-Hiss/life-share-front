@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Homa_page from './home_compnenet/Homa_page'
-import HospitalProfile from './components/hospitalProfile'
-import UserProfile from './components/userProfile'
+import HospitalProfile from './Hospital_component/hospitalProfile'
+import UserProfile from './Donar_component/userProfile'
 import { useEffect,useRef } from 'react'
 import Testfrom from './TestForm'
 
