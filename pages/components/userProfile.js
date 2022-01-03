@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import EditForm from "./editForm";
 import axios from "axios";
 import { useRouter } from 'next/router'
-import { PencilAltIcon } from "@heroicons/react/outline";
+import { useAuth } from "../../contexts/auth";
+// import { PencilAltIcon } from "@heroicons/react/outline";
 function UserProfile(props) {
-  // const router = useRouter();
-  // let profile = JSON.parse(router.query.data)
 
-
+  const { login ,tokens} = useAuth()
+  console.log(tokens);
+  
 
   const [result, setResult] = useState([]);
   const [editForm, setEditForm] = useState(false);
@@ -48,11 +49,11 @@ function UserProfile(props) {
                   Personal Information
                 </h1>
                 <div className="flex justify-end">
-                  <PencilAltIcon
+                  {/* <PencilAltIcon
                     onClick={submitHandler}
                     type="submit"
                     className="absolute w-5 h-5 mt-4 mr-4 top-1 right-1"
-                  />
+                  /> */}
                 </div>
                 <h2 className=" text-2xl text-[#1B1717] ml-1.5">Location:</h2>
                 <p className="pl-12 text-xl text-[#CE1212]">{result.location}</p>

@@ -9,16 +9,16 @@ export default function Signupformhospital() {
   const handlesubmitsignup =async (e) => {
     let data = new FormData()
     e.preventDefault();
- 
+    const url = 'http://127.0.0.1:8000/'
     data.append("first_name",e.target.firstname.value)
     data.append("username",e.target.username.value)
     data.append("email",e.target.email.value)
     data.append("password",e.target.password.value)
     data.append("website",e.target.website.value)
-    data.append("roles", "hospital");
-    let url = 'http://127.0.0.1:8000/hospital/signup/';
+    data.append("roles", "Hospital");
+    let urls = `${url}accounts/hospital/signup/`;
     
-    const create =axios.post(url, data, {
+    const create =axios.post(urls, data, {
       headers: {
         'content-type': 'multipart/form-data'
       }
@@ -37,6 +37,7 @@ export default function Signupformhospital() {
                   <small>Or sign up with credentials</small>
                 </div>
                 <form onSubmit={handlesubmitsignup}>
+                <div className="grid grid-cols-[1fr_1fr] gap-3">
                   <div className="relative w-full mb-3 ">
                     <label
                       className="block mb-2 text-xs font-bold uppercase text-blueGray-600"
@@ -66,7 +67,7 @@ export default function Signupformhospital() {
                       placeholder="User Name"
                     />
                   </div>
-
+                  </div>
                   <div className="relative w-full mb-3">
                     <label
                       className="block mb-2 text-xs font-bold uppercase text-blueGray-600"
@@ -81,7 +82,7 @@ export default function Signupformhospital() {
                       placeholder="Email"
                     />
                   </div>
-
+                  <div className="grid grid-cols-[1fr_1fr] gap-3">
                   <div className="relative w-full mb-3">
                     <label
                       className="block mb-2 text-xs font-bold uppercase text-blueGray-600"
@@ -109,6 +110,7 @@ export default function Signupformhospital() {
                       className="w-full px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
                       placeholder="Confirm Password"
                     />
+                  </div>
                   </div>
                   <div className="relative w-full mb-3">
                     <label

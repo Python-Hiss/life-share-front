@@ -18,10 +18,17 @@ export default function LoginForm() {
     try{
         
         await login(username, password)
-        // router.push({
-        //   pathname: '/components/userProfile',
-        //   query: { data: JSON.stringify(tokens)}
-        // });
+        if (tokens.Role == 'Doner'){
+        router.push({
+          pathname: '/components/userProfile',
+        });
+        }
+        if (tokens.Role == 'Hospital'){
+        router.push({
+          pathname: '/components/hospitalProfile',
+        });
+        }
+        
     }
     catch(error){
       console.log('the password or username not correct');
