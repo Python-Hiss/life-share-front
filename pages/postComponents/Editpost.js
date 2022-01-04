@@ -4,23 +4,23 @@ export default function Editpost(props){
       <div>
       <div className="w-4/5 m-auto ">
         <div className="mt-5 md:mt-0 md:col-span-2">
-          <form action="#" method="POST" onSubmit={handlesubmit}>
+          <form action="#" method="POST" onSubmit={props.handleupdate}>
             <div className="shadow sm:rounded-md sm:overflow-hidden">
               <div className="px-4 py-5 space-y-6 bg-white sm:p-6">
                 <div className="grid grid-cols-1 gap-6">
                   <div className="grid grid-cols-6 gap-6">
                     <div className="col-span-6 sm:col-span-3">
                       <label
-                        htmlFor="first-name"
+                        htmlFor="bloodtype"
                         className="block text-sm font-medium text-gray-700"
                       >
                         Blood Type
                       </label>
                       <input
-                        defaultValue={props.result.first_name}
+                        defaultValue={props.itemupdate.title}
                         type="text"
-                        name="firstname"
-                        id="first-name"
+                        name="bloodtype"
+                        id="bloodtype"
                         autoComplete="given-name"
                         className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"
                       />
@@ -29,16 +29,16 @@ export default function Editpost(props){
                 </div>
                 <div className="col-span-6 sm:col-span-3">
                   <label
-                    htmlFor="first-name"
+                    htmlFor="Content"
                     className="block text-sm font-medium text-gray-700"
                   >
-                    User Name
+                    Content
                   </label>
                   <input
-                    defaultValue={props.result.username}
+                    defaultValue={props.itemupdate.text}
                     type="text"
-                    name="username"
-                    id="first-name"
+                    name="Content"
+                    id="Content"
                     autoComplete="given-name"
                     className="block w-full mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"
                   />

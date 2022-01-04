@@ -4,10 +4,12 @@ import FormForPost from './postComponents/FormForPost'
 import PostElement from './postComponents/PostElement'
 import { useAuth } from '../contexts/auth'
 import { useState, useEffect } from "react";
+import Editpost from "./postComponents/Editpost";
 export default function Newsfeed() {
 
     const { tokens } = useAuth();
-
+    const [showform, setshowform] = useState(false);
+    const [itemupdate, setItemupdate] = useState("");
     const [result, setResult] = useState([]);
     useEffect(async () => {
         axios.get('http://127.0.0.1:8000/blood/show/').then((res) => {
@@ -41,6 +43,12 @@ export default function Newsfeed() {
         console.log(result);
     })
     }
+    const handleform =  (item)=>{
+        // e.preventDefault()
+        setshowform(true)
+        setItemupdate(item)
+        // console.log(itemupdate);
+      }
     const handleupdate = async (item) => {
         let url = `http://127.0.0.1:8000/blood/update-delete/${item.id}/`
         let data = {
@@ -55,18 +63,29 @@ export default function Newsfeed() {
             });
             console.log(result);
         })
+        setshowform(false)
     }
 
         return (
             <div>
+                {showform ? 
+                <Editpost
+                handleupdate={handleupdate}
+                itemupdate ={itemupdate}
+                />
+                :
+                <>
                 <FormForPost
                     handlesubmit={handlesubmit}
                 />
                 <PostElement
                     result={result}
                     handledelete={handledelete}
-                    handleupdate={handleupdate}
+                    handleform = {handleform}
+                    showform = {showform}   
                 />
+                </>
+                }
             </div>
         )
     }

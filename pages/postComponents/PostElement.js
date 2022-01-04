@@ -1,22 +1,18 @@
 
 import React from "react";
-import axios from "axios";
 import { useAuth } from '../../contexts/auth'
-import { useState, useEffect } from "react";
 
 export default function PostElement(props) {
   const { tokens } = useAuth();
-  const [showform, setshowform] = useState(false);
-  const [itemupdate, setItemupdate] = useState("");
-  const handleform =  (item)=>{
-    // e.preventDefault()
-    setshowform(true)
-    setItemupdate(item)
-    console.log(itemupdate);
-  }
+
+
   return (
     <>
-    {showform ? <p>hi</p>:
+    {
+    // props.showform ? <Editpost
+    // itemupdate ={itemupdate}
+    // handleupdate={props.handleupdate}
+    // />:
     props.result.map((item, idx) => {
 
 
@@ -46,7 +42,7 @@ export default function PostElement(props) {
               </p>
               {item.patient == tokens.username &&
                 <div className="flex justify-end">
-                  <button onClick={()=>handleform(item)} >update</button>
+                  <button onClick={()=>props.handleform(item)} >update</button>
                   <button onClick={()=>props.handledelete(item)}>delete</button>
                 </div>
               }
