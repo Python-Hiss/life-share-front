@@ -1,11 +1,21 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { GlobeAltIcon, SearchIcon } from "@heroicons/react/outline";
 import Table from "./Table2";
 import EditHospital from "./EditHospital";
 function HospitalProfile() {
   const [result, setResult] = useState([]);
+  const [profile, setprofile] = useState([]);
+  const [edit, setedit] = useState(false);
   const url = 'http://127.0.0.1:8000/'
+
+  useEffect(async () => {
+    await axios
+      .get(`${url}accounts/hospital/5/`)
+      .then((data) => {
+        setprofile(data.data);
+      });
+  }, []);
   let submitHandler = async (e) => {
     let data = e.target.blood_type.value
     let city = e.target.city.value
@@ -26,12 +36,14 @@ function HospitalProfile() {
       setResult(filteredData);
     }
 
+  const showEdit=(e)=>{
+    e.preventDefault();
+setedit(true)
 
+  }
   
   const sendEmail= async (e)=>{
     e.preventDefault();
-    let body = [{'email':'koute47@gmail.com'},{'email':'Yasseenkouthe@ENG.HU.EDU.JO'}]
-    // const df = await axios.post(`${url}accounts/send-form-email/`,body)
     result.map((person,index) => (
       
       setTimeout(() => {
@@ -49,12 +61,12 @@ function HospitalProfile() {
       
       <div className=" bg-top p-5 bg-[length:100%_50%]  bg-[url('https://www.solidbackgrounds.com/images/3840x2160/3840x2160-dark-red-solid-color-background.jpg')] bg-no-repeat ">
         <img
-          src="https://cdn.britannica.com/w:400,h:300,c:crop/12/130512-004-AD0A7CA4/campus-Riverside-Ottawa-The-Hospital-Ont.jpg"
+          src={profile.image}
           alt="hospital"
           className="object-cover m-auto rounded-full h-80 w-80"
         />
       </div>
-      <h1 className="text-4xl text-center text-blue-900">Isteqlal</h1>
+      <h1 className="text-4xl text-center text-blue-900">{profile.first_name}</h1>
       <button onClick={sendEmail}>send email </button>
       <div>
         <div className="flex">
@@ -62,9 +74,17 @@ function HospitalProfile() {
           <a href="https://istiklalhospital.com/">istiqlal-hospital.com</a>
         </div>
       </div>
-      <EditHospital
-            
-            />
+      
+      {edit && <EditHospital result = {profile}/>}
+      <div className="mt-6 text-center">
+                      <button
+                        className="w-full px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-800 active:bg-blueGray-600 hover:shadow-lg focus:outline-none"
+                        type="button"
+                        onClick={showEdit}
+                      >
+                        Edit Profile
+                      </button>
+                    </div>
       <div id="hospital-form-table">
         <div>
           <div class="md:grid md:grid-cols-2 md:gap-6 w-4/5 m-auto">

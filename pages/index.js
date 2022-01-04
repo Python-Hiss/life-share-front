@@ -13,8 +13,8 @@ export default function Home() {
   return (
     <>
     
-    <Newsfeed/>
-    {/* {<Homa_page/>} */}
+    {/* <Newsfeed/> */}
+    {<HospitalProfile/>}
     {/* <Testfrom/> */}
     </>
   )
