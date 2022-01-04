@@ -1,0 +1,45 @@
+#form-of-user {
+    width: 80%;
+    display: block;
+    padding-left: 237px;
+    margin: auto;
+}
+#form-of-user label{
+    margin-top: 50px ;
+    display: block;
+    font-weight: 600;
+    margin: bottom 4px;
+    
+}
+#form-of-user input[type="text"]{
+    border: none;
+    /* border-top: 20px; */
+    padding: 10px;
+    border-bottom: 2px solid rgb(139 1 1) ;
+    width: 75%;
+    background-color: whitesmoke;
+}
+
+#form-of-user input[type="checkbox"]{
+    width:25px;
+    height: 25px;
+    margin-left: 50px;
+    
+}
+#form-of-user input[type="checkbox"]:checked{
+    background-color: rgb(139 1 1);
+}
+
+#cd{
+    margin-top: 50px;
+}
+#cd label{
+    display: inline;
+}
+
+#form-of-user button{
+    display: block;
+    width: 75%;
+    background-color:rgb(139 1 1);
+    color:white;
+}
