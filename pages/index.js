@@ -4,17 +4,18 @@ import HospitalProfile from './Hospital_component/hospitalProfile'
 import UserProfile from './Donar_component/userProfile'
 import { useEffect,useRef } from 'react'
 import Testfrom from './TestForm'
+import { useAuth } from '../contexts/auth'
+import Newsfeed from './Newsfeed'
 
 export default function Home() {
-  // const circleRef = useRef(null);
+  const {tokens} = useAuth()
 
   return (
     <>
-    {/* <Email/> */}
-    {/* <Homa_page/> */}
-    <HospitalProfile/>
-    {/* <NewsFeed/> */}
-    <UserProfile/>
+    
+    <Newsfeed/>
+    {/* {<Homa_page/>} */}
+    {/* <Testfrom/> */}
     </>
   )
 }
