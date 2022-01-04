@@ -4,7 +4,7 @@ import Sectiontwo from './Sectiontwo'
 // import LoginForm from './LoginForm'
 import SectiontThree from './SectiontThree'
 import SectionFour from './SectionFour'
-import SectionFive from './SectionFive'
+import SectionFive from './AboutUs'
 
 import Footer from './Footer'
 // import Signupform from './Signupform'

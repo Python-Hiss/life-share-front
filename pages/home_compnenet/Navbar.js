@@ -42,16 +42,17 @@ export default function Navbar() {
           <div 
             className="divnavbar">
             <ul style={{display: 'flex'}} >
-              <li  id="textdocs">
-
-                  Home Page
-              </li>
-              <li  id="textdocs">
-                  Profile
-              </li>
-              <li id="textdocs">
-                  Post
-              </li>
+            <Link href="/">
+              <button id="textdocs">Home</button>
+              </Link>
+              <Link href="/">
+              <button id="textdocs">Profile</button>
+              </Link>
+              <Link href="/">
+              <button id="textdocs">Post</button>
+              </Link>
+             
+    
             </ul>
           </div>
         </div>
