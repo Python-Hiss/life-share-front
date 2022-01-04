@@ -3,7 +3,8 @@ import { useState } from "react";
 import { GlobeAltIcon ,SearchIcon } from "@heroicons/react/outline";
 import Form2 from "./Form2";
 import Table from "./Table2";
-
+import Header2 from '../layout/Header2'
+import Footer from "../home_compnenet/Footer";
 function HospitalProfile() {
   const [result, setResult] = useState([]);
   const [location, setLocation] = useState([]);
@@ -26,6 +27,7 @@ function HospitalProfile() {
   };
   return (
     <>
+    <Header2/>
       <div className=" bg-top p-5 bg-[length:100%_50%]  bg-[url('https://www.solidbackgrounds.com/images/3840x2160/3840x2160-dark-red-solid-color-background.jpg')] bg-no-repeat ">
         <img
           src="https://cdn.britannica.com/w:400,h:300,c:crop/12/130512-004-AD0A7CA4/campus-Riverside-Ottawa-The-Hospital-Ont.jpg"
@@ -45,7 +47,7 @@ function HospitalProfile() {
       <Form2 locationHandler={locationHandler} bloodTypeHandler={bloodTypeHandler} submitHandler={submitHandler}/>
 
       <Table/>
-       
+       <Footer/>
       </div>
     </>
   );

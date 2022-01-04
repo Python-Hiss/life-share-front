@@ -5,7 +5,8 @@ import { useAuth } from "../../contexts/auth";
 import { PencilAltIcon } from "@heroicons/react/outline";
 import { Result } from "postcss";
 import UserInfo from "../home_compnenet/UserInfo";
-
+import  Header2  from "../layout/Header2";
+import Footer from "../home_compnenet/Footer";
 function UserProfile() {
   const {tokens } = useAuth();
   let role = {
@@ -33,17 +34,19 @@ function UserProfile() {
 
   return (
     <>
+    <Header2/>
       <div className="">
-        <div className=" bg-top p-5 bg-[length:100%_50%]  bg-[url('https://www.solidbackgrounds.com/images/3840x2160/3840x2160-dark-red-solid-color-background.jpg')] bg-no-repeat ">
+        <div className="bg-top bg-[length:100%_50%] h-[35rem] p-[7rem] bg-[url('https://www.solidbackgrounds.com/images/3840x2160/3840x2160-dark-red-solid-color-background.jpg')] bg-no-repeat ">
           <img
             src={result.image}
             alt="person"
             className="object-cover m-auto rounded-full h-80 w-80"
           />
-        </div>
-        <h1 className="text-4xl text-center text-blue-900">
+          <h1 className="text-4xl text-center text-blue-900 m-9">
           {result.first_name}
         </h1>
+        </div>
+   
 
         <div className="mt-12">
           {!editForm ? (
@@ -66,6 +69,7 @@ function UserProfile() {
           )}
         </div>
       </div>
+      <Footer/>
     </>
   );
 }
