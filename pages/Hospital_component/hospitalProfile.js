@@ -3,6 +3,7 @@ import { useState,useEffect } from "react";
 import { GlobeAltIcon, SearchIcon } from "@heroicons/react/outline";
 import Table from "./Table2";
 import EditHospital from "./EditHospital";
+import Header2 from "../layout/Header2"
 function HospitalProfile() {
   const [result, setResult] = useState([]);
   const [profile, setprofile] = useState([]);
@@ -58,10 +59,10 @@ setedit(true)
 
   return (
     <>
-      
+      <Header2/>
       <div className=" bg-top p-5 bg-[length:100%_50%]  bg-[url('https://www.solidbackgrounds.com/images/3840x2160/3840x2160-dark-red-solid-color-background.jpg')] bg-no-repeat ">
         <img
-          src={profile.image}
+          src="https://p.kindpng.com/picc/s/712-7124651_hospital-building-transparent-hd-png-download.png"
           alt="hospital"
           className="object-cover m-auto rounded-full h-80 w-80"
         />
@@ -78,7 +79,7 @@ setedit(true)
       {edit && <EditHospital result = {profile}/>}
       <div className="mt-6 text-center">
                       <button
-                        className="w-full px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-800 active:bg-blueGray-600 hover:shadow-lg focus:outline-none"
+                        className="w-1/5 px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-red-800 active:bg-blueGray-600 hover:shadow-lg focus:outline-none"
                         type="button"
                         onClick={showEdit}
                       >
@@ -165,7 +166,7 @@ setedit(true)
         <Table data={result}/>
         <div className="mt-6 text-center">
                       <button
-                        className="w-full px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-800 active:bg-blueGray-600 hover:shadow-lg focus:outline-none"
+                        className="w-4/5 px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-red-800 active:bg-blueGray-600 hover:shadow-lg focus:outline-none"
                         type="button"
                         onClick={sendEmail}
                       >
