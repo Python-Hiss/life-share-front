@@ -6,7 +6,7 @@ import { useEffect,useRef } from 'react'
 import Testfrom from './TestForm'
 import { useAuth } from '../contexts/auth'
 import Newsfeed from './Newsfeed'
-
+// import Header from './layout/Header'
 export default function Home() {
   const {tokens} = useAuth()
 
@@ -16,6 +16,7 @@ export default function Home() {
     {/* <Newsfeed/> */}
     {<HospitalProfile/>}
     {/* <Testfrom/> */}
+
     </>
   )
 }
