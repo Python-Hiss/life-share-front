@@ -49,12 +49,13 @@ export default function Newsfeed() {
         setItemupdate(item)
         // console.log(itemupdate);
       }
-    const handleupdate = async (item) => {
-        let url = `http://127.0.0.1:8000/blood/update-delete/${item.id}/`
+    const handleupdate = async (e) => {
+        e.preventDefault()
+        let url = `http://127.0.0.1:8000/blood/update-delete/${itemupdate.id}/`
         let data = {
-            patient: item.patient,
-            title: e.target.title.value,
-            text: e.target.content.value,
+            patient: itemupdate.patient,
+            title: e.target.bloodtype.value,
+            text: e.target.Content.value,
             publish: true
         }
         axios.put(url, data).then(() => {
