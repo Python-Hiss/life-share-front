@@ -3,7 +3,7 @@ import EditForm from "./editForm";
 import axios from "axios";
 import { useAuth } from "../../contexts/auth";
 import { PencilAltIcon } from "@heroicons/react/outline";
-import UserInfo from "../pages/home_compnenet/UserInfo";
+import UserInfo from "../home_compnenet/UserInfo";
 function UserProfile() {
   const [result, setResult] = useState([]);
   const [editForm, setEditForm] = useState(false);
@@ -45,7 +45,7 @@ function UserProfile() {
               <UserInfo result={result} submitHandler={submitHandler}/>
               
               <button
-                className="mt-12 text-red-600 border-2 border-red-600 border-dashed rounded-lg  h-9 w-36 ml-52"
+                className="mt-12 text-red-600 border-2 border-red-600 border-dashed rounded-lg h-9 w-36 ml-52"
                 onClick={deleteHandler}
               >
                 Remove Account

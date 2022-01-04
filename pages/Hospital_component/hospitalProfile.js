@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { GlobeAltIcon, SearchIcon } from "@heroicons/react/outline";
 import Table from "./Table2";
-import emailjs from 'emailjs-com';
+import EditHospital from "./EditHospital";
 function HospitalProfile() {
   const [result, setResult] = useState([]);
   const url = 'http://127.0.0.1:8000/'
@@ -12,37 +12,41 @@ function HospitalProfile() {
     let area = e.target.area.value
     let urls = `${url}accounts/blood/${data}/`
     e.preventDefault();
-    // const blood_data = await axios.get(urls)
-    //   let filteredData = blood_data.data.filter(
-    //     (item) =>  item.address.city.city == city
-    //   );
-    //   if (area){
-    //     filteredData = filteredData.filter(
-    //       (item) =>  item.address.area.area == area
-    //     );
-    //   }
-    //   console.log(filteredData);
-    //   setResult(filteredData);
-    // });
-    console.log(e.target);
-  };
-
-
-  function sendEmail (e) {
-
-    emailjs.sendForm('service_3ywcai5', 'template_kz4wyy7',data , 'user_0EuDpkMo2DsYTJbm2k8fz')
-      .then((result) => {
-          console.log(result.text);
-      }, (error) => {
-          console.log(error.text);
-      });
-     
+    
+   const blood_data = await axios.get(urls)
+      let filteredData = blood_data.data.filter(
+        (item) =>  item.address.city.city == city
+      );
+      if (area){
+        filteredData = filteredData.filter(
+          (item) =>  item.address.area.area == area
+        );
+      }
+      console.log(filteredData);
+      setResult(filteredData);
     }
 
-    
+
+  
+  const sendEmail= async (e)=>{
+    e.preventDefault();
+    let body = [{'email':'koute47@gmail.com'},{'email':'Yasseenkouthe@ENG.HU.EDU.JO'}]
+    // const df = await axios.post(`${url}accounts/send-form-email/`,body)
+    result.map((person,index) => (
+      
+      setTimeout(() => {
+        // do stuff function with item
+        axios.post(`${url}accounts/send-form-email/`,{email:person.email})
+        console.log({email:person.email})
+      }, 2000*index )
+    ))
+  }
+
+
+
   return (
     <>
-    
+      
       <div className=" bg-top p-5 bg-[length:100%_50%]  bg-[url('https://www.solidbackgrounds.com/images/3840x2160/3840x2160-dark-red-solid-color-background.jpg')] bg-no-repeat ">
         <img
           src="https://cdn.britannica.com/w:400,h:300,c:crop/12/130512-004-AD0A7CA4/campus-Riverside-Ottawa-The-Hospital-Ont.jpg"
@@ -58,7 +62,9 @@ function HospitalProfile() {
           <a href="https://istiklalhospital.com/">istiqlal-hospital.com</a>
         </div>
       </div>
-
+      <EditHospital
+            
+            />
       <div id="hospital-form-table">
         <div>
           <div class="md:grid md:grid-cols-2 md:gap-6 w-4/5 m-auto">
@@ -137,6 +143,15 @@ function HospitalProfile() {
         </div>
 
         <Table data={result}/>
+        <div className="mt-6 text-center">
+                      <button
+                        className="w-full px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-800 active:bg-blueGray-600 hover:shadow-lg focus:outline-none"
+                        type="button"
+                        onClick={sendEmail}
+                      >
+                        send email
+                      </button>
+                    </div>
       </div>
     </>
   );
