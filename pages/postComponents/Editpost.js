@@ -1,4 +1,5 @@
 export default function Editpost(props){
+let blood_types =['A+',"A-","B+","B-","AB+","AB-","O+","O-"]
     
     return(
       <div>
@@ -16,14 +17,20 @@ export default function Editpost(props){
                       >
                         Blood Type
                       </label>
-                      <input
+                      {/* <input
                         defaultValue={props.itemupdate.title}
                         type="text"
                         name="bloodtype"
                         id="bloodtype"
                         autoComplete="given-name"
                         className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"
-                      />
+                      /> */}
+                      <select name="bloodtype" class=" mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        {blood_types.map(type =>{
+                          return<option value={type}>{type}</option>
+                        })}
+                        
+                      </select>
                     </div>
                   </div>
                 </div>

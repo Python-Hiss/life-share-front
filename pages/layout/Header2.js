@@ -23,7 +23,6 @@ export default function Example() {
       .get(`http://127.0.0.1:8000/accounts/${role[tokens.Role]}/${tokens.id}`)
       .then((data) => {
         setResult(data.data);
-        console.log(result)
       });
   }, []);
 
@@ -46,9 +45,11 @@ export default function Example() {
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
-                    <a href="" className="text-white">
+                    <Link href = "../Newsfeed"> 
+                    <a className="text-white">
                       News Feed
-                    </a>
+                    </a></Link>
+                  
                   </div>
                 </div>
               </div>
@@ -60,7 +61,7 @@ export default function Example() {
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full object-cover"
-                        src={result.image}
+                        src={result.image == "http://127.0.0.1:8000/uploads/image/profile_p.jpg"? "https://thumbs.dreamstime.com/b/male-icon-vector-user-person-profile-avatar-flat-color-glyph-pictogram-illustration-117610350.jpg ": result.image}
                         alt=""
                       />
                     </Menu.Button>
@@ -77,9 +78,8 @@ export default function Example() {
                     <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <Menu.Item>
                         {({ active }) => (
-                          // <Link >
+                          <Link  href="../Profile">
                           <a
-                            href="/"
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"
@@ -87,13 +87,12 @@ export default function Example() {
                           >
                             Your Profile
                           </a>
-                          // </Link>           
+                         </Link>           
                         )}
                       </Menu.Item>
 
                       <Menu.Item>
                         {({ active }) => (
-                          // <Link href="/">
                            <a
                             href="/"
                             onClick={logout}

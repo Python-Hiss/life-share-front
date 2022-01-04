@@ -5,14 +5,36 @@ import { Component } from "react/cjs/react.production.min";
 import { useAuth } from "../../contexts/auth";
 
 export default function Example(props) {
+ 
   const { tokens } = useAuth();
   let role = {
     Doner: "donater",
     Patient: "patient",
   };
+  let url2 = 'http://127.0.0.1:8000/'
   const handlesubmit = async (e) => {
-    let data = new FormData();
     e.preventDefault();
+    let area = {
+      area:e.target.Area.value,
+      
+    }
+    let city = {
+      city:e.target.City.value,
+      
+    }
+    const Area = await axios.post(`${url2}address/area/`,area)
+    const City = await axios.post(`${url2}address/city/`,city)
+    let address={
+      area:Area.data.id,
+      city:City.data.id,
+      direction : 'no comment'
+    }
+    const Address = await axios.post(`${url2}address/address/`,address)
+    console.log(Area.data);
+    console.log(City.data);
+    console.log(address);
+    let data = new FormData();
+
     data.append("first_name", e.target.firstname.value);
     data.append("username", e.target.username.value);
     data.append("email", e.target.email.value);
@@ -30,6 +52,7 @@ export default function Example(props) {
     axios
       .put(`http://127.0.0.1:8000/blood/update-blood/1/`, {
         blood_type: e.target.bloodType.value,
+        description: "No description added"
       })
       .then(() => {
         axios
@@ -122,6 +145,38 @@ export default function Example(props) {
                       className="block w-full mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"
                     />
                   </div>
+                  <div className="col-span-6 sm:col-span-3">
+                        <label
+                          htmlFor="first-name"
+                          className="block text-sm font-medium text-gray-700"
+                        >
+                          Area
+                        </label>
+                        <input
+                          defaultValue='i.e. Abdoun'
+                          type="text"
+                          name="Area"
+                          id="first-name"
+                          autoComplete="given-name"
+                          className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"
+                        />
+                      </div>
+                      <div className="col-span-6 sm:col-span-3">
+                        <label
+                          htmlFor="first-name"
+                          className="block text-sm font-medium text-gray-700"
+                        >
+                          City
+                        </label>
+                        <input
+                          defaultValue='i.e. Amman'
+                          type="text"
+                          name="City"
+                          id="first-name"
+                          autoComplete="given-name"
+                          className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"
+                        />
+                      </div>
                   <div>
                     <label
                       htmlFor="about"
