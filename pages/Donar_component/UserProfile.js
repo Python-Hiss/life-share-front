@@ -51,7 +51,7 @@ function UserProfile() {
               <UserInfo result={result} submitHandler={submitHandler} />
 
               <button
-                className="mt-12 text-red-600 border-2 border-red-600 border-dashed rounded-lg  h-9 w-36 ml-52"
+                className="mt-12 text-red-600 border-2 border-red-600 border-dashed rounded-lg h-9 w-36 ml-52"
                 onClick={deleteHandler}
               >
                 Remove Account

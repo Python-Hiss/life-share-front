@@ -12,17 +12,8 @@ export default function LoginForm() {
     try{
         
         await login(username, password)
-        if (tokens.Role == 'Doner' || tokens.Role == 'Patient'){
-        router.push({
-          pathname: '/Donar_component/userProfile',
-        });
-        }
         
-        if (tokens.Role == 'Hospital'){
-        router.push({
-          pathname: '/Hospital_component/hospitalProfile',
-        });
-        }
+        
         
     }
     catch(error){
