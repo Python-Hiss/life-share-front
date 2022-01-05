@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import EditForm from "./editForm";
 import axios from "axios";
-import { useAuth } from "../../contexts/auth";
+import { useAuth } from "../contexts/auth";
 import { PencilAltIcon } from "@heroicons/react/outline";
 import { Result } from "postcss";
 import UserInfo from "./UserInfo";
-import Header2 from "../layout/Header2";
-import Footer from "../home_compnenet/Footer";
-import Cahngepas from "../Hospital_component/Cahngepas";
+import Header2 from "./Header2";
+import Footer from "./Footer";
+import Cahngepas from "./Cahngepas";
 function UserProfile() {
   const { tokens } = useAuth();
   let role = {

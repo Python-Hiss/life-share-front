@@ -2,7 +2,7 @@ import { useState, useEffect} from "react";
 import axios from "axios";
 import { comment } from "postcss";
 import { Component } from "react/cjs/react.production.min";
-import { useAuth } from "../../contexts/auth";
+import { useAuth } from "../contexts/auth";
 
 export default function Example(props) {
   const [address, setaddress] = useState("");

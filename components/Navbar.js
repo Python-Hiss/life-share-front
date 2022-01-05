@@ -48,7 +48,7 @@ export default function Navbar() {
                   Home Page
               </li>
               </Link>
-              <Link href="/home_compnenet/About">
+              <Link href="/About">
               <li  id="textdocs" className="cursor-pointer">
                   About Us
               </li>

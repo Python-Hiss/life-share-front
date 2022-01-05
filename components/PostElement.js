@@ -1,6 +1,6 @@
 
 import React from "react";
-import { useAuth } from '../../contexts/auth'
+import { useAuth } from '../contexts/auth'
 
 export default function PostElement(props) {
   const { tokens } = useAuth();

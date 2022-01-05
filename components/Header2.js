@@ -3,14 +3,14 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import { useState ,useEffect } from "react";
 import axios from "axios";
-import { useAuth } from "../../contexts/auth";
+import { useAuth } from "../contexts/auth";
 import Link from "next/link";
 
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
-export default function Example() {
+export default function Header2() {
   
   const {tokens ,logout } = useAuth();
   let role = {

@@ -1,13 +1,13 @@
 import { PaperClipIcon,PencilAltIcon } from '@heroicons/react/solid'
-import { useAuth } from "../../contexts/auth";
+import { useAuth } from "../contexts/auth";
 
 
-function Example(props) {
-  const {tokens } = useAuth();
+function HospitalInfo(props) {
+  const {tokens} = useAuth();
   return (
     <div className="relative w-4/5 m-auto overflow-hidden bg-white shadow sm:rounded-lg">
       <div className="px-4 py-5 sm:px-6">
-        <h3 className="text-lg font-medium leading-6 text-gray-900">Personal Information</h3>
+        <h3 className="text-lg font-medium leading-6 text-gray-900">Hospital Information</h3>
         <PencilAltIcon
                     onClick={props.submitHandler}
                     type="submit"
@@ -32,14 +32,6 @@ function Example(props) {
             <dt className="text-sm font-medium text-gray-500">Phone Number</dt>
             <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{props.result.phone_number}</dd>
           </div>
-          <div className="px-4 py-5 bg-white sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm font-medium text-gray-500">City</dt>
-            {props.address && <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{props.address}</dd>}
-          </div>
-          <div className="px-4 py-5 bg-gray-50 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm font-medium text-gray-500">Blood Type</dt>
-            {props.blood &&<dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{props.blood}</dd>}
-          </div>
           
         </dl>
       </div>
@@ -47,4 +39,4 @@ function Example(props) {
   )
 }
 
-export default Example
+export default HospitalInfo

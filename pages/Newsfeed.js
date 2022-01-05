@@ -1,12 +1,12 @@
 import React from "react";
 import axios from "axios";
-import FormForPost from "./postComponents/FormForPost";
-import PostElement from "./postComponents/PostElement";
 import { useAuth } from "../contexts/auth";
 import { useState, useEffect } from "react";
-import Editpost from "./postComponents/Editpost";
-import Header2 from "./layout/Header2";
-import Footer from "./home_compnenet/Footer"
+import Footer from "../components/Footer";
+import Editpost from "../components/Editpost";
+import PostElement from "../components/PostElement";
+import Header2 from "../components/Header2";
+import FormForPost from "../components/FormForPost";
 export default function Newsfeed() {
   const { tokens } = useAuth();
   const [showform, setshowform] = useState(false);

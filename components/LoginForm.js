@@ -1,11 +1,9 @@
 import React from 'react'
-import { useAuth } from '../../contexts/auth';
-import { useRouter } from 'next/router';
-import { useState } from 'react/cjs/react.development';
+import { useAuth } from '../contexts/auth';
+import { useState } from 'react';
 export default function LoginForm() {
   const { login ,tokens} = useAuth();
   const [check,setcheck] = useState('')
-  const router = useRouter()
 
   const handleloginsubmit =async (e) => {
     e.preventDefault();
@@ -42,9 +40,6 @@ export default function LoginForm() {
           <hr className="mt-6 border-b-1 border-blueGray-300" />
         </div>
         <div className="flex-auto px-4 py-10 pt-0 lg:px-10">
-          {/* <div className="mb-3 font-bold text-center text-blueGray-400">
-            <small>Or sign in with credentials</small>
-          </div> */}
           <form onSubmit={handleloginsubmit}>
             <div className="relative w-full mb-3">
               <label

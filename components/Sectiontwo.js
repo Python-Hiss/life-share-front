@@ -5,7 +5,6 @@ import { TweenMax, Power3, TimelineLite,Expo,gsap } from "gsap";
 import { useEffect, useRef } from 'react';
 import Signupform from "./Signupform";
 
-
 export default function Sectiontwo() {
     const videoRef = useRef();
     useEffect(() => {

@@ -9,7 +9,6 @@ import Signupformhospital from './Signupfromhospital'
 import { useEffect } from 'react'
 import { TweenMax, Power3,Expo,gsap } from "gsap";
 import SectionFour from './SectionFour'
-import AboutUs from './About'
 
 const  Homa_page =()=> {
     useEffect(() => {

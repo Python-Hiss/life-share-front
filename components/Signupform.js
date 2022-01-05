@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { TweenMax, Power3, TimelineLite, Expo, gsap } from "gsap";
-import { useAuth } from "../../contexts/auth";
+import { useAuth } from "../contexts/auth";
 import Navbar from "./Navbar";
 import { useRouter } from 'next/router';
 export default function Signupform() {

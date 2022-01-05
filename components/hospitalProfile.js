@@ -4,9 +4,9 @@ import { GlobeAltIcon, SearchIcon } from "@heroicons/react/outline";
 import Table from "./Table2";
 import EditHospital from "./EditHospital";
 import HospitalInfo from "./HospitalInfo";
-import Header2 from "../layout/Header2";
-import { useAuth } from "../../contexts/auth";
-import Footer from "../home_compnenet/Footer";
+import Header2 from "./Header2";
+import { useAuth } from "../contexts/auth";
+import Footer from "./Footer";
 import LoadPage from "./LoadPage";
 import Cahngepas from "./Cahngepas";
 function HospitalProfile() {
