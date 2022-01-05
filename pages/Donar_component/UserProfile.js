@@ -52,9 +52,7 @@ function UserProfile() {
       <div className="">
         <div className="bg-top bg-[length:100%_50%] h-[35rem] p-[7rem] bg-[url('https://www.solidbackgrounds.com/images/3840x2160/3840x2160-dark-red-solid-color-background.jpg')] bg-no-repeat ">
         <img
-            src={
-              result.image ? "https://thumbs.dreamstime.com/b/male-icon-vector-user-person-profile-avatar-flat-color-glyph-pictogram-illustration-117610350.jpg ": result.image
-            }
+            src={result.image}
             alt="person"
             className="object-cover m-auto rounded-full h-80 w-80"
           />
