@@ -43,3 +43,19 @@
     background-color:rgb(139 1 1);
     color:white;
 }
+
+#removeandchange{
+
+text-align: center;
+margin: 20px;
+}
+
+#removebtn{
+    background-image: linear-gradient(#1B1717,#810000, #CE1212);
+    margin-inline-end: 50px;
+}
+
+#changePasswordbtn{
+    background-image: linear-gradient(#1B1717,#810000, #CE1212);
+
+}

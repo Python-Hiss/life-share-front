@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Homa_page from './home_compnenet/Homa_page'
+import HomePage from './home_compnenet/HomePage'
 import HospitalProfile from './Hospital_component/hospitalProfile'
 import UserProfile from './Donar_component/UserProfile'
 import { useEffect,useRef } from 'react'
@@ -12,7 +12,7 @@ export default function Home() {
 
   return (
     <>
-    {tokens? <Newsfeed/> : <Homa_page/>}
+    {tokens? <Newsfeed/> : <HomePage/>}
     {/* <HospitalProfile/> */}
     
     {/* <Testfrom/> */}
