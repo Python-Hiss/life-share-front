@@ -42,16 +42,17 @@ export default function Navbar() {
           <div
             className="divnavbar">
             <ul style={{display: 'flex'}} >
-              <li  id="textdocs">
+            <Link href="/">
+              <li className="cursor-pointer" id="textdocs">
 
                   Home Page
               </li>
-              <li  id="textdocs">
+              </Link>
+              <Link href="/home_compnenet/About">
+              <li  id="textdocs" className="cursor-pointer">
                   Profile
               </li>
-              <li id="textdocs">
-                  Post
-              </li>
+              </Link>
             </ul>
           </div>
         </div>

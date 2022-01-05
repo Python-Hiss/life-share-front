@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import '../styles/video.css'
-// import '../styles/scroll.css'
+import '../styles/About.css'
 import '../styles/tailwind.css'
 import { AuthProvider } from '../contexts/auth'
 import '../styles/form.css'

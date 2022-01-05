@@ -7,11 +7,15 @@ import HospitalInfo from "./HospitalInfo";
 import Header2 from "../layout/Header2"
 import { useAuth } from "../../contexts/auth";
 import Footer from "../home_compnenet/Footer";
+import LoadPage from "./LoadPage";
+import Cahngepas from "./Cahngepas";
 function HospitalProfile() {
   const { tokens, logout } = useAuth();
   const [result, setResult] = useState([]);
   const [profile, setprofile] = useState([]);
   const [edit, setedit] = useState(false);
+  const [Load, setLoad] = useState(false);
+  const [change, setchange] = useState(false);
   const url = 'https://lifeshareproject.herokuapp.com/'
   const getdata = async()=> {
     await axios
@@ -49,20 +53,29 @@ function HospitalProfile() {
 
 
   const sendEmail = async (e) => {
+    setLoad(true)
     e.preventDefault();
+    let loadnumber =result.length
     result.map((person, index) => (
 
       setTimeout(() => {
         // do stuff function with item
         axios.post(`${url}accounts/send-form-email/`, { email: person.email })
-        console.log({ email: person.email })
+        console.log('{ email: person.email }')
       }, 2000 * index)
     ))
+    setTimeout(()=>{
+      setLoad(false)
+    },2000*loadnumber)
+    
   }
-
+  const changepas = (e)=>{
+    e.preventDefault();
+    setchange(true)
+  }
   const deleteaccount = () => {
     axios.delete(
-      `http://127.0.0.1:8000/accounts/hospital/${tokens.id}`
+      `${url}accounts/hospital/${tokens.id}`
     )
     logout()
   }
@@ -70,7 +83,9 @@ function HospitalProfile() {
   return (
     <>
       {/* {profile.image} */}
+    
       <Header2 />
+      
       <div className=" bg-top bg-[length:100%_50%] h-[35rem] p-[7rem] bg-[url('https://www.solidbackgrounds.com/images/3840x2160/3840x2160-dark-red-solid-color-background.jpg')] bg-no-repeat">
         <img
           src={profile.image}
@@ -88,6 +103,8 @@ function HospitalProfile() {
       </div>
 
       {!edit ? <HospitalInfo result={profile} submitHandler={showEdit} /> : <EditHospital setprofile={setprofile} setedit={setedit} result={profile} getdata={getdata} />}
+      {change && <Cahngepas token={tokens.access}/>}
+      <button onClick={changepas}>Change Password</button>
       <div className="mt-6 text-center">
         {/* <button
                         className="w-1/5 px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear bg-red-800 rounded shadow outline-none active:bg-blueGray-600 hover:shadow-lg focus:outline-none"
@@ -157,7 +174,7 @@ function HospitalProfile() {
             </div>
           </div>
         </div>
-
+        {Load && <LoadPage/>}
         <Table data={result} />
         <div className="mt-6 text-center">
           <button
