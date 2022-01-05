@@ -50,6 +50,22 @@ let blood_types =['A+',"A-","B+","B-","AB+","AB-","O+","O-"]
                     className="block w-full mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"
                   />
                 </div>
+                <div className="col-span-6 sm:col-span-3">
+                  <label
+                    htmlFor="Content"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Phone
+                  </label>
+                  <input
+                    defaultValue={props.itemupdate.text}
+                    type="text"
+                    name="phone"
+                    id="phone"
+                    autoComplete="given-name"
+                    className="block w-full mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"
+                  />
+                </div>
                 <button
                   type="submit"
                   className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
