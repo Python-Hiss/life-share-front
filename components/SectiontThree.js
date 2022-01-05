@@ -86,7 +86,7 @@ export default function SectiontThree() {
               </div>
             </div>
 
-            <div className="w-full px-4 pt-24 mr-auto md:w-6/12 md:pt-0">
+            <div className="w-full px-4 pt-24 mr-auto md:w-6/12 md:pt-0 divimagethree">
               <img
                 alt="..."
                 className="w-full shadow-xl "
@@ -140,7 +140,7 @@ export default function SectiontThree() {
               </div>
             </div>
 
-            <div className="w-full px-4 pt-24 mr-auto md:w-6/12 md:pt-0">
+            <div className="w-full px-4 pt-24 mr-auto md:w-6/12 md:pt-0 divimagefour">
               <img
                 alt="..."
                 className="max-w-full shadow-xl"

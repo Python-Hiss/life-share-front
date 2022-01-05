@@ -94,6 +94,7 @@ function HospitalProfile() {
           src={profile.image }
           alt="person"
           className="object-cover m-auto rounded-full h-80 w-80"
+          id='imgprofile'
         />
       </div>
       <h1 className="text-4xl text-center text-blue-900">
@@ -117,7 +118,7 @@ function HospitalProfile() {
           getdata={getdata}
         />
       )}
-      {change && <Cahngepas token={tokens.access} />}
+      {change && <Cahngepas token={tokens.access} setchange={setchange}/>}
       {/* <button id="changePassword"
         className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
         onClick={changepas}

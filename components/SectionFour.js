@@ -1,11 +1,48 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React from "react";
 import Link from "next/link";
-
+import {gsap } from "gsap";
+import { useEffect } from "react";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 // import IndexNavbar from "components/Navbars/IndexNavbar.js";
 // import Footer from "components/Footers/Footer.js";
 
 export default function Index() {
+    gsap.registerPlugin(ScrollTrigger)
+  
+    useEffect(() => {
+
+
+      gsap.from(".scrollsct4img",1.5, {
+       
+        scrollTrigger: {
+          trigger: ".scrollsct4img",
+          toggleActions:'restart reverse restart reverse', // onenter onleave onenterback onleaveback
+          start:'top center',
+          end:'bottom center',
+          markers :true,
+
+        },
+        x: -500,
+        autoAlpha: 0,
+        overwrite: "auto"
+        // ease: Power3.easeInOut,
+      });
+      gsap.from(".scrollsct6img",1.5, {
+       
+        scrollTrigger: {
+          trigger: ".scrollsct6img",
+          toggleActions:'restart reverse restart reverse', // onenter onleave onenterback onleaveback
+          start:'top center',
+          end:'bottom center',
+        },
+        x: 500,
+        autoAlpha: 0,
+        overwrite: "auto"
+        // ease: Power3.easeInOut,
+      });
+     
+    }, []);
     return (
         <>
 
@@ -14,7 +51,7 @@ export default function Index() {
 
             <section style={{marginBottom:"50px",marginTop: "-250px"}} class="section-content-block section-process">
 
-                <div class="container-fluid">
+                <div class="container-fluid w-full">
 
                     <div class="row">
 
@@ -26,8 +63,9 @@ export default function Index() {
                     </div>
 
                     {/* <div class="row wow fadeInUp"> */}
+                    
 
-                        <div id="sec4img" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                        <div id="sec4img" class="col-lg-3 col-md-6 col-sm-6 col-xs-12 scrollsct4img">
 
                             <div class="process-layout">
 
@@ -70,7 +108,7 @@ export default function Index() {
                         </div>
 
 
-                        <div id="sec4img" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                        <div id="sec4img" class="col-lg-3 col-md-6 col-sm-6 col-xs-12 scrollsct6img">
 
                             <div class="process-layout">
 
@@ -89,25 +127,7 @@ export default function Index() {
 
                         </div>
 
-                        <div id="sec4img" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-
-                            <div class="process-layout">
-
-                                <figure class="process-img">
-                                    <img style={{width:"400px", height:"300px"}} src="https://s3.envato.com/files/251846726/Dinner_time_man_preview.jpg" alt="process" />
-                                    <div class="step">
-                                        <h3>4</h3>
-                                    </div>
-                                </figure>
-
-                                <article id="article" class="process-info">
-                                    <h2 id="h2-sec4">Refreshment</h2>
-                                    <p>You can also stay in sitting room until you feel strong enough to leave. Have a drink after this process and rest in in donation zone. </p>
-                                </article>
-
-                            </div>
-
-                        </div>
+                      
 
                     </div>
 

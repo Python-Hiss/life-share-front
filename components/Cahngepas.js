@@ -18,7 +18,7 @@ export default function Cahngepas(props) {
     }
     
     return (
-        <div>
+        <div className="mt-5">
         <div className="w-4/5 m-auto ">
           <div className="mt-5 md:mt-0 md:col-span-2">
             <form onSubmit={handlesubmit}>
@@ -55,10 +55,9 @@ export default function Cahngepas(props) {
                       className="block w-full mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"
                     />
                   </div>
-                </div>
-                <div className="grid grid-cols-6 gap-6">
+                  <div className="grid grid-cols-6 gap-6">
                   <button
-                    // onClick={closing}
+                    onClick={()=>props.setchange(false)}
                     className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
                   >
                     Cancel
@@ -70,6 +69,8 @@ export default function Cahngepas(props) {
                     Save
                   </button>
                 </div>
+                </div>
+               
 
               </div>
             </form>
