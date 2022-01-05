@@ -2,8 +2,7 @@ import React from "react";
 export default function Footer() {
   return (
     <>
-    
-      <footer className="relative pt-8 pb-6 mt-16 bg-red-900">
+      <footer id="footer" className="relative pt-8 pb-6 mt-16 bg-red-900">
         <div className="container px-4 mx-auto">
           <div className="flex flex-wrap text-center lg:text-left">
             <div className="w-full px-4 lg:w-6/12">

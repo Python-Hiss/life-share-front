@@ -10,7 +10,7 @@ import { useEffect } from 'react'
 import { TweenMax, Power3,Expo,gsap } from "gsap";
 import SectionFour from './SectionFour'
 
-const  Homa_page =()=> {
+const  HomePage =()=> {
     useEffect(() => {
         gsap.from('.imagenav',1.5, { y:1000  ,opacity: 0, delay:1,ease:Power3.easeInOut});
         gsap.from('.contenttext',1, { x:-200 , opacity: 0 , delay:0.4,ease:Power3.easeInOut});
@@ -33,4 +33,4 @@ const  Homa_page =()=> {
         </>
     )
 }
-export default Homa_page
+export default HomePage

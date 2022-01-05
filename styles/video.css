@@ -49,15 +49,35 @@
   }
 
 
-.loginform{
-  /* margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: fit-content; */
+.divimagethree{
+  animation: beat 4s ease-in-out infinite;
+}
+.divimagefour{
+  animation: beat2 4s ease-in-out infinite;
 }
 
+@keyframes beat{
+  0%{
+      transform: scale(0.7);
+  }
+  50%{
+      transform: scale(1);
+  }
+  100%{
+      transform: scale(0.7);
+  }
+  }
+@keyframes beat2{
+  0%{
+      transform:skew(10deg, 10deg);
+  }
+  50%{
+      transform: skew(0deg, 0deg);
+  }
+  100%{
+      transform: skew(10deg, 10deg);
+  }
+  }
 #divlogin{
   width: 100%;
   height: 100vh;
@@ -149,7 +169,7 @@
 
 
 #footer{
-  background-image: linear-gradient(#bb0a1e, #6d7c8e);
+  background-image: linear-gradient(#810000,#1B1717);
   background-position: 50% 50%;
   
 }
@@ -256,6 +276,8 @@
 .section-process {
   position: relative;
   overflow: hidden;
+  margin-left: 5%;
+  margin: 10%;
 }
 .process-layout {
   margin: 32px 0 0;
@@ -265,11 +287,11 @@
   background: #F8F9FA;
 }
 .process-layout .process-img {
+
   position: relative;
 }
 .process-layout .process-img img {
   vertical-align: middle;
-  width: 100%;
 }
 .process-layout .process-img .step h3 {
   color: #FFFFFF;
@@ -344,7 +366,7 @@
 
 
 #sec4img{
-  width: 300px;
+  width: 340px;
   text-align: center;
   display: block;
   margin-left: 60px;
@@ -358,4 +380,10 @@
 }
 #h2-sec4{
   color: white;  
+}
+
+#imgprofile:hover{
+  border-color:#bb0a1e ;
+  border-width: 4px ;
+  border-style: solid;
 }

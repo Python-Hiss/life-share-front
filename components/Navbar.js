@@ -18,7 +18,7 @@ export default function Navbar() {
       scrollTrigger: {
         trigger: "navbar",
         toggleActions:'restart reverse restart reverse', // onenter onleave onenterback onleaveback
-        start:'22% center',
+        start:'19% center',
         end:'bottom center',
       }
     });
@@ -45,7 +45,7 @@ export default function Navbar() {
             <Link href="/">
               <li className="cursor-pointer" id="textdocs">
 
-                  Home Page
+                  Home
               </li>
               </Link>
               <Link href="/About">
