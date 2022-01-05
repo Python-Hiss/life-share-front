@@ -1,7 +1,7 @@
 import React from 'react'
-import HospitalProfile from '../component/hospitalProfile'
+import HospitalProfile from '../components/hospitalProfile'
 import { useAuth } from '../contexts/auth'
-import UserProfile from '../component/UserProfile'
+import UserProfile from '../components/UserProfile'
 export default function Newsfeed() {
     const { tokens } = useAuth()
     return (
