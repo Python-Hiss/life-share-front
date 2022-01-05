@@ -56,15 +56,7 @@ export default function Signupform() {
             <div className="w-full px-4 mt-28 lg:w-6/12">
               <div className="relative flex flex-col w-full min-w-0 mb-6 break-words border-0 rounded-lg shadow-lg bg-blueGray-200 frombakc">
                 <div className="flex-auto px-4 py-10 pt-0 lg:px-20">
-                  <div className="mt-6 text-center">
-                    <button
-                      className="w-full px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-800 active:bg-blueGray-600 hover:shadow-lg focus:outline-none"
-                      type="button"
-                      onClick={showsignhospital}
-                    >
-                      Sign up Hospital
-                    </button>
-                  </div>
+                  
                   <div className="px-6 pb-6 mb-0 rounded-t">
                     <hr className="mt-6 border-b-1 border-blueGray-300" />
                   </div>
@@ -203,6 +195,15 @@ export default function Signupform() {
                         Create Account
                       </button>
                     </div>
+                    <div className="mt-6 text-center">
+                    <button
+                      className="w-full px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-800 active:bg-blueGray-600 hover:shadow-lg focus:outline-none"
+                      type="button"
+                      onClick={showsignhospital}
+                    >
+                      Sign up as Hospital
+                    </button>
+                  </div>
                   </form>
                 </div>
               </div>

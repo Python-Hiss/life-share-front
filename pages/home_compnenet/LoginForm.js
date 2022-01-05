@@ -1,8 +1,10 @@
 import React from 'react'
 import { useAuth } from '../../contexts/auth';
 import { useRouter } from 'next/router';
+import { useState } from 'react/cjs/react.development';
 export default function LoginForm() {
   const { login ,tokens} = useAuth();
+  const [check,setcheck] = useState('')
   const router = useRouter()
 
   const handleloginsubmit =async (e) => {
@@ -17,7 +19,7 @@ export default function LoginForm() {
         
     }
     catch(error){
-      console.log('the password or username not correct');
+      setcheck('the password or username not correct')
      
     }
    
@@ -37,28 +39,12 @@ export default function LoginForm() {
               Sign in with
             </h6>
           </div>
-          <div className="text-center btn-wrapper">
-            <button
-              className="inline-flex items-center px-4 py-2 mb-1 mr-2 text-xs font-normal font-bold uppercase transition-all duration-150 ease-linear bg-white rounded shadow outline-none active:bg-blueGray-50 text-blueGray-700 focus:outline-none hover:shadow-md"
-              type="button"
-            >
-              <img alt="..." className="w-5 mr-1" src="/img/github.svg" />
-              Github
-            </button>
-            <button
-              className="inline-flex items-center px-4 py-2 mb-1 mr-1 text-xs font-normal font-bold uppercase transition-all duration-150 ease-linear bg-white rounded shadow outline-none active:bg-blueGray-50 text-blueGray-700 focus:outline-none hover:shadow-md"
-              type="button"
-            >
-              <img alt="..." className="w-5 mr-1" src="/img/google.svg" />
-              Google
-            </button>
-          </div>
           <hr className="mt-6 border-b-1 border-blueGray-300" />
         </div>
         <div className="flex-auto px-4 py-10 pt-0 lg:px-10">
-          <div className="mb-3 font-bold text-center text-blueGray-400">
+          {/* <div className="mb-3 font-bold text-center text-blueGray-400">
             <small>Or sign in with credentials</small>
-          </div>
+          </div> */}
           <form onSubmit={handleloginsubmit}>
             <div className="relative w-full mb-3">
               <label
@@ -90,16 +76,9 @@ export default function LoginForm() {
               />
             </div>
             <div>
-              <label className="inline-flex items-center cursor-pointer">
-                <input
-                  id="customCheckLogin"
-                  type="checkbox"
-                  className="w-5 h-5 ml-1 transition-all duration-150 ease-linear border-0 rounded form-checkbox text-blueGray-700"
-                />
                 <span className="ml-2 text-sm font-semibold text-blueGray-600">
-                  Remember me
+                 {check}
                 </span>
-              </label>
             </div>
 
             <div className="mt-6 text-center">
@@ -111,20 +90,6 @@ export default function LoginForm() {
               </button>
       </div>
           </form>
-        </div>
-      </div>
-      <div className="relative flex flex-wrap mt-6">
-        <div className="w-1/2">
-          <a
-            href="#pablo"
-          >
-            <small>Forgot password?</small>
-          </a>
-        </div>
-        <div className="w-1/2 text-right">
-            <a href="#pablo" className="text-blueGray-200">
-              <small>Create new account</small>
-            </a>
         </div>
       </div>
     </div>

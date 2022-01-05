@@ -13,7 +13,7 @@ export default function Newsfeed() {
   const [itemupdate, setItemupdate] = useState("");
   const [result, setResult] = useState([]);
   useEffect(async () => {
-    axios.get("http://127.0.0.1:8000/blood/show/").then((res) => {
+    axios.get("https://lifeshareproject.herokuapp.com/blood/show/").then((res) => {
       setResult(res.data);
       console.log(res.data);
     });
@@ -21,7 +21,7 @@ export default function Newsfeed() {
   const handlesubmit = async (e) => {
     e.preventDefault();
     console.log(e.target.title.value);
-    let url = `http://127.0.0.1:8000/blood/add/`;
+    let url = `https://lifeshareproject.herokuapp.com/blood/add/`;
     let data = {
       patient: tokens.username,
       title: e.target.title.value,
@@ -35,9 +35,9 @@ export default function Newsfeed() {
   };
 
   const handledelete = async (item) => {
-    let url = `http://127.0.0.1:8000/blood/update-delete/${item.id}/`;
+    let url = `https://lifeshareproject.herokuapp.com/blood/update-delete/${item.id}/`;
     axios.delete(url).then(() => {
-      axios.get("http://127.0.0.1:8000/blood/show/").then((res) => {
+      axios.get("https://lifeshareproject.herokuapp.com/blood/show/").then((res) => {
         setResult(res.data);
       });
       console.log(result);
@@ -51,7 +51,7 @@ export default function Newsfeed() {
   };
   const handleupdate = async (e) => {
     e.preventDefault();
-    let url = `http://127.0.0.1:8000/blood/update-delete/${itemupdate.id}/`;
+    let url = `https://lifeshareproject.herokuapp.com/blood/update-delete/${itemupdate.id}/`;
     let data = {
       patient: itemupdate.patient,
       title: e.target.bloodtype.value,
@@ -59,7 +59,7 @@ export default function Newsfeed() {
       publish: true,
     };
     axios.put(url, data).then(() => {
-      axios.get("http://127.0.0.1:8000/blood/show/").then((res) => {
+      axios.get("https://lifeshareproject.herokuapp.com/blood/show/").then((res) => {
         setResult(res.data);
       });
       console.log(result);

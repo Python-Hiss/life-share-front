@@ -47,9 +47,6 @@ export default function Signupformhospital() {
           <div className="w-full px-4 mt-40 lg:w-6/12"  style={{height:'50vh'}}>
             <div className="relative flex flex-col w-full min-w-0 mb-6 break-words border-0 rounded-lg shadow-lg bg-blueGray-200 frombakc">
               <div className="flex-auto px-4 py-10 pt-0 mt-20 lg:px-10">
-                <div className="mb-3 font-bold text-center text-blueGray-400">
-                  <small>Or sign up with credentials</small>
-                </div>
                 <form onSubmit={handlesubmitsignup}>
                 <div className="grid grid-cols-[1fr_1fr] gap-3">
                   <div className="relative w-full mb-3 ">

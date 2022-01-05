@@ -12,15 +12,15 @@ export default function Example(props) {
     Patient: "patient",
   };
 
-  let url2 = "http://127.0.0.1:8000/";
-  useEffect(async () => {
-    await axios
-      .get(`${url2}address/address/${props.result.address}/`)
-      .then((data) => {
-        setaddress(data.data)
-        console.log(data);
-      });
-  }, []);
+  let url2 = "https://lifeshareproject.herokuapp.com/";
+  // useEffect(async () => {
+  //   await axios
+  //     .get(`${url2}address/address/${props.result.address}/`)
+  //     .then((data) => {
+  //       setaddress(data.data)
+  //       console.log(data);
+  //     });
+  // }, []);
 
   const closing = () => {
     props.setEditForm(false)
@@ -170,16 +170,14 @@ export default function Example(props) {
                       >
                         Area
                       </label>
-                      {address.area && (
+                      
                         <input
-                          defaultValue={address.area.area}
                           type="text"
                           name="Area"
                           id="first-name"
                           autoComplete="given-name"
                           className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"
                         />
-                      )}
                     </div>
                     <div className="col-span-6 sm:col-span-3">
                       <label
@@ -188,16 +186,14 @@ export default function Example(props) {
                       >
                         City
                       </label>
-                      {address.area && (
+                      
                         <input
-                          defaultValue={address.city.city}
                           type="text"
                           name="City"
                           id="first-name"
                           autoComplete="given-name"
                           className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"
                         />
-                      )}
                     </div>
                   </div>
 

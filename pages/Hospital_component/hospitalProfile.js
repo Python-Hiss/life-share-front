@@ -4,7 +4,7 @@ import { GlobeAltIcon, SearchIcon } from "@heroicons/react/outline";
 import Table from "./Table2";
 import EditHospital from "./EditHospital";
 import HospitalInfo from "./HospitalInfo";
-import Header2 from "../layout/Header2"
+import Header2 from "../layout/Header2";
 import { useAuth } from "../../contexts/auth";
 import Footer from "../home_compnenet/Footer";
 import LoadPage from "./LoadPage";
@@ -16,97 +16,106 @@ function HospitalProfile() {
   const [edit, setedit] = useState(false);
   const [Load, setLoad] = useState(false);
   const [change, setchange] = useState(false);
-  const url = 'https://lifeshareproject.herokuapp.com/'
-  const getdata = async()=> {
-    await axios
-    .get(`${url}accounts/hospital/${tokens.id}/`)
-    .then((data) => {
+  const url = "https://lifeshareproject.herokuapp.com/";
+  const getdata = async () => {
+    await axios.get(`${url}accounts/hospital/${tokens.id}/`).then((data) => {
       setprofile(data.data);
     });
-  }
+  };
   useEffect(async () => {
-    await axios
-    .get(`${url}accounts/hospital/${tokens.id}/`)
-    .then((data) => {
+    await axios.get(`${url}accounts/hospital/${tokens.id}/`).then((data) => {
       setprofile(data.data);
       console.log(data.data.image);
     });
-    
   }, []);
   let submitHandler = async (e) => {
     e.preventDefault();
-    let data = e.target.blood_type.value
-    let city = e.target.city.value
+    let data = e.target.blood_type.value;
+    let city = e.target.city.value;
 
-    let urls = `${url}accounts/blood/${data}/`
-    
-    const blood_data = await axios.get(urls)
+    let urls = `${url}accounts/blood/${data}/`;
+
+    const blood_data = await axios.get(urls);
     let filteredData = blood_data.data.filter(
       (item) => item.address.city.city == city
     );
     console.log(filteredData);
     setResult(filteredData);
-  }
+  };
 
   const showEdit = () => {
-    setedit(true)
-
-  }
-
+    setedit(true);
+  };
 
   const sendEmail = async (e) => {
-    setLoad(true)
+    setLoad(true);
     e.preventDefault();
-    let loadnumber =result.length
-    result.map((person, index) => (
-
+    let loadnumber = result.length;
+    result.map((person, index) =>
       setTimeout(() => {
         // do stuff function with item
-        axios.post(`${url}accounts/send-form-email/`, { email: person.email })
-        console.log('{ email: person.email }')
+        axios.post(`${url}accounts/send-form-email/`, { email: person.email });
+        console.log("{ email: person.email }");
       }, 2000 * index)
-    ))
-    setTimeout(()=>{
-      setLoad(false)
-    },2000*loadnumber)
-    
-  }
-  const changepas = (e)=>{
+    );
+    setTimeout(() => {
+      setLoad(false);
+    }, 2000 * loadnumber);
+  };
+  const changepas = (e) => {
     e.preventDefault();
-    setchange(true)
-  }
+    setchange(true);
+  };
   const deleteaccount = () => {
-    axios.delete(
-      `${url}accounts/hospital/${tokens.id}`
-    )
-    logout()
-  }
+    axios.delete(`${url}accounts/hospital/${tokens.id}`);
+    logout();
+  };
 
   return (
     <>
       {/* {profile.image} */}
-    
+
       <Header2 />
-      
+
       <div className=" bg-top bg-[length:100%_50%] h-[35rem] p-[7rem] bg-[url('https://www.solidbackgrounds.com/images/3840x2160/3840x2160-dark-red-solid-color-background.jpg')] bg-no-repeat">
         <img
-          src= {profile.image == "http://127.0.0.1:8000/uploads/image/profile_p.jpg"? "https://thumbs.dreamstime.com/b/male-icon-vector-user-person-profile-avatar-flat-color-glyph-pictogram-illustration-117610350.jpg ": profile.image}
-          alt="hospital"
+          src={
+            profile.image == "http://127.0.0.1:8000/uploads/image/profile_p.jpg"
+              ? "https://thumbs.dreamstime.com/b/male-icon-vector-user-person-profile-avatar-flat-color-glyph-pictogram-illustration-117610350.jpg "
+              : profile.image
+          }
+          alt="person"
           className="object-cover m-auto rounded-full h-80 w-80"
         />
       </div>
-      <h1 className="text-4xl text-center text-blue-900">{profile.first_name}</h1>
+      <h1 className="text-4xl text-center text-blue-900">
+        {profile.first_name}
+      </h1>
       {/* <button onClick={sendEmail}>send email </button> */}
       <div>
         <div className="mt-5 text-2xl text-center text-blue-900">
           {/* <GlobeAltIcon className=" h-9 w-9" /> */}
-          <a href={profile.website} >website</a>
+          <a href={profile.website}>website</a>
         </div>
       </div>
 
-      {!edit ? <HospitalInfo result={profile} submitHandler={showEdit} /> : <EditHospital setprofile={setprofile} setedit={setedit} result={profile} getdata={getdata} />}
-      {change && <Cahngepas token={tokens.access}/>}
-      <button onClick={changepas}>Change Password</button>
+      {!edit ? (
+        <HospitalInfo result={profile} submitHandler={showEdit} />
+      ) : (
+        <EditHospital
+          setprofile={setprofile}
+          setedit={setedit}
+          result={profile}
+          getdata={getdata}
+        />
+      )}
+      {change && <Cahngepas token={tokens.access} />}
+      <button
+        className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+        onClick={changepas}
+      >
+        Change Password
+      </button>
       <div className="mt-6 text-center">
         {/* <button
                         className="w-1/5 px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear bg-red-800 rounded shadow outline-none active:bg-blueGray-600 hover:shadow-lg focus:outline-none"
@@ -151,7 +160,6 @@ function HospitalProfile() {
                         <label
                           for="last-name"
                           class="block text-sm font-medium text-gray-700"
-
                         >
                           City
                         </label>
@@ -163,7 +171,6 @@ function HospitalProfile() {
                           class="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                         />
                       </div>
-                      
                     </div>
                   </div>
                   <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
@@ -176,7 +183,7 @@ function HospitalProfile() {
             </div>
           </div>
         </div>
-        {Load && <LoadPage/>}
+        {Load && <LoadPage />}
         <Table data={result} />
         <div className="mt-6 text-center">
           <button
@@ -187,11 +194,14 @@ function HospitalProfile() {
             send email
           </button>
         </div>
-        <button onClick={deleteaccount} className="my-12 text-red-600 border-2 border-red-600 border-dashed rounded-lg h-9 w-36 ml-52">
+        <button
+          onClick={deleteaccount}
+          className="my-12 text-red-600 border-2 border-red-600 border-dashed rounded-lg h-9 w-36 ml-52"
+        >
           Remove account
         </button>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }

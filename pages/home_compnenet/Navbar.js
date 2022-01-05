@@ -39,7 +39,7 @@ export default function Navbar() {
             </Link>
             
           </div>
-          {/* <div
+          <div
             className="divnavbar">
             <ul style={{display: 'flex'}} >
             <Link href="/">
@@ -50,11 +50,11 @@ export default function Navbar() {
               </Link>
               <Link href="/home_compnenet/About">
               <li  id="textdocs" className="cursor-pointer">
-                  Profile
+                  About Us
               </li>
               </Link>
             </ul>
-          </div> */}
+          </div>
         </div>
       </nav>
 

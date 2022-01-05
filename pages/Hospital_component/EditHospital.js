@@ -8,14 +8,14 @@ export default function EditHospital(props) {
   let url = 'https://lifeshareproject.herokuapp.com/'
   const [address, setaddress] = useState("");
   const { tokens } = useAuth();
-  useEffect(async () => {
-    await axios
-      .get(`${url}address/address/${props.result.address}/`)
-      .then((data) => {
-        setaddress(data.data)
-        console.log(data);
-      });
-  }, []);
+  // useEffect(async () => {
+  //   await axios
+  //     .get(`${url}address/address/${props.result.address}/`)
+  //     .then((data) => {
+  //       setaddress(data.data)
+  //       console.log(data);
+  //     });
+  // }, []);
 
   const handlesubmit = async (e) => {
     e.preventDefault();
@@ -172,15 +172,15 @@ export default function EditHospital(props) {
                       >
                         Area
                       </label>
-                      {address.area &&
+                      
                         <input
-                          defaultValue={address.area.area}
+                          
                           type="text"
                           name="Area"
                           id="first-name"
                           autoComplete="given-name"
                           className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"
-                        />}
+                        />
                     </div>
                     <div className="col-span-6 sm:col-span-3">
                       <label
@@ -189,16 +189,16 @@ export default function EditHospital(props) {
                       >
                         City
                       </label>
-                      {address.area &&
+                      {/* {address.area && */}
                         <input
-                          defaultValue={address.city.city}
+                          // defaultValue={address.city.city}
                           type="text"
                           name="City"
                           id="first-name"
                           autoComplete="given-name"
                           className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"
                         />
-                      }
+                      {/* } */}
                     </div>
                   </div>
 

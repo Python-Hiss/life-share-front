@@ -4,7 +4,7 @@ import axios from "axios";
 import { useAuth } from "../../contexts/auth";
 import { PencilAltIcon } from "@heroicons/react/outline";
 import { Result } from "postcss";
-import UserInfo from "../home_compnenet/UserInfo";
+import UserInfo from "./UserInfo";
 import Header2 from "../layout/Header2";
 import Footer from "../home_compnenet/Footer";
 function UserProfile() {
@@ -31,10 +31,10 @@ function UserProfile() {
       .get(`https://lifeshareproject.herokuapp.com/accounts/${role[tokens.Role]}/${tokens.id}`)
       .then((data) => {
         setResult(data.data);
-        axios.get(`http://127.0.0.1:8000/blood/update-blood/${data.data.blood_type}/`)
+        axios.get(`https://lifeshareproject.herokuapp.com/blood/update-blood/${data.data.blood_type}/`)
           .then((data) => {setBlood(data.data.blood_type);});
-        axios.get(`http://127.0.0.1:8000/address/address/${data.data.address}/`)
-          .then((data) => {setAddress(data.data.city.city);});
+        // axios.get(`https://lifeshareproject.herokuapp.com/address/address/${data.data.address}/`)
+        //   .then((data) => {setAddress(data.data.city.city);});
       })
   
       
@@ -46,12 +46,7 @@ function UserProfile() {
       <div className="">
         <div className="bg-top bg-[length:100%_50%] h-[35rem] p-[7rem] bg-[url('https://www.solidbackgrounds.com/images/3840x2160/3840x2160-dark-red-solid-color-background.jpg')] bg-no-repeat ">
           <img
-            src={
-              result.image ==
-              "http://127.0.0.1:8000/uploads/image/profile_p.jpg"
-                ? "https://thumbs.dreamstime.com/b/male-icon-vector-user-person-profile-avatar-flat-color-glyph-pictogram-illustration-117610350.jpg "
-                : result.image
-            }
+            src="https://thumbs.dreamstime.com/b/male-icon-vector-user-person-profile-avatar-flat-color-glyph-pictogram-illustration-117610350.jpg "
             alt="person"
             className="object-cover m-auto rounded-full h-80 w-80"
           />
