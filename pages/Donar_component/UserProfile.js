@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import EditForm from "./editForm";
 import axios from "axios";
 import { useAuth } from "../../contexts/auth";
-import { PencilAltIcon } from "@heroicons/react/outline";
-import { Result } from "postcss";
-import UserInfo from "../home_compnenet/UserInfo";
+// import { PencilAltIcon } from "@heroicons/react/outline";
+// import { Result } from "postcss";
+import UserInfo from "./UserInfo";
 import  Header2  from "../layout/Header2";
 import Footer from "../home_compnenet/Footer";
 function UserProfile() {

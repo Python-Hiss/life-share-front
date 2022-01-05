@@ -1,91 +1,102 @@
 import axios from "axios";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { GlobeAltIcon, SearchIcon } from "@heroicons/react/outline";
 import Table from "./Table2";
 import EditHospital from "./EditHospital";
+import HospitalInfo from "./HospitalInfo";
 import Header2 from "../layout/Header2"
+import { useAuth } from "../../contexts/auth";
+import Footer from "../home_compnenet/Footer";
 function HospitalProfile() {
+  const { tokens, logout } = useAuth();
   const [result, setResult] = useState([]);
   const [profile, setprofile] = useState([]);
   const [edit, setedit] = useState(false);
   const url = 'http://127.0.0.1:8000/'
-
+  const getdata = async()=> {
+    await axios
+    .get(`${url}accounts/hospital/${tokens.id}/`)
+    .then((data) => {
+      setprofile(data.data);
+    });
+  }
   useEffect(async () => {
     await axios
-      .get(`${url}accounts/hospital/5/`)
-      .then((data) => {
-        setprofile(data.data);
-      });
+    .get(`${url}accounts/hospital/${tokens.id}/`)
+    .then((data) => {
+      setprofile(data.data);
+    });
   }, []);
   let submitHandler = async (e) => {
+    e.preventDefault();
     let data = e.target.blood_type.value
     let city = e.target.city.value
-    let area = e.target.area.value
-    let urls = `${url}accounts/blood/${data}/`
-    e.preventDefault();
-    
-   const blood_data = await axios.get(urls)
-      let filteredData = blood_data.data.filter(
-        (item) =>  item.address.city.city == city
-      );
-      if (area){
-        filteredData = filteredData.filter(
-          (item) =>  item.address.area.area == area
-        );
-      }
-      console.log(filteredData);
-      setResult(filteredData);
-    }
 
-  const showEdit=(e)=>{
-    e.preventDefault();
-setedit(true)
+    let urls = `${url}accounts/blood/${data}/`
+    
+    const blood_data = await axios.get(urls)
+    let filteredData = blood_data.data.filter(
+      (item) => item.address.city.city == city
+    );
+    console.log(filteredData);
+    setResult(filteredData);
+  }
+
+  const showEdit = () => {
+    setedit(true)
 
   }
-  
-  const sendEmail= async (e)=>{
+
+
+  const sendEmail = async (e) => {
     e.preventDefault();
-    result.map((person,index) => (
-      
+    result.map((person, index) => (
+
       setTimeout(() => {
         // do stuff function with item
-        axios.post(`${url}accounts/send-form-email/`,{email:person.email})
-        console.log({email:person.email})
-      }, 2000*index )
+        axios.post(`${url}accounts/send-form-email/`, { email: person.email })
+        console.log({ email: person.email })
+      }, 2000 * index)
     ))
   }
 
-
+  const deleteaccount = () => {
+    axios.delete(
+      `http://127.0.0.1:8000/accounts/hospital/${tokens.id}`
+    )
+    logout()
+  }
 
   return (
     <>
-      <Header2/>
-      <div className=" bg-top p-5 bg-[length:100%_50%]  bg-[url('https://www.solidbackgrounds.com/images/3840x2160/3840x2160-dark-red-solid-color-background.jpg')] bg-no-repeat ">
+      {/* {profile.image} */}
+      <Header2 />
+      <div className=" bg-top bg-[length:100%_50%] h-[35rem] p-[7rem] bg-[url('https://www.solidbackgrounds.com/images/3840x2160/3840x2160-dark-red-solid-color-background.jpg')] bg-no-repeat">
         <img
-          src="https://p.kindpng.com/picc/s/712-7124651_hospital-building-transparent-hd-png-download.png"
+          src={profile.image}
           alt="hospital"
           className="object-cover m-auto rounded-full h-80 w-80"
         />
       </div>
       <h1 className="text-4xl text-center text-blue-900">{profile.first_name}</h1>
-      <button onClick={sendEmail}>send email </button>
+      {/* <button onClick={sendEmail}>send email </button> */}
       <div>
-        <div className="flex">
-          <GlobeAltIcon className="h-9 w-9 top-1 right-1 " />
-          <a href="https://istiklalhospital.com/">istiqlal-hospital.com</a>
+        <div className="mt-5 text-2xl text-center text-blue-900">
+          {/* <GlobeAltIcon className=" h-9 w-9" /> */}
+          <a href={profile.website} >website</a>
         </div>
       </div>
-      
-      {edit && <EditHospital result = {profile}/>}
+
+      {!edit ? <HospitalInfo result={profile} submitHandler={showEdit} /> : <EditHospital setprofile={setprofile} setedit={setedit} result={profile} getdata={getdata} />}
       <div className="mt-6 text-center">
-                      <button
-                        className="w-1/5 px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-red-800 active:bg-blueGray-600 hover:shadow-lg focus:outline-none"
+        {/* <button
+                        className="w-1/5 px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear bg-red-800 rounded shadow outline-none active:bg-blueGray-600 hover:shadow-lg focus:outline-none"
                         type="button"
                         onClick={showEdit}
                       >
                         Edit Profile
-                      </button>
-                    </div>
+                      </button> */}
+      </div>
       <div id="hospital-form-table">
         <div>
           <div class="md:grid md:grid-cols-2 md:gap-6 w-4/5 m-auto">
@@ -95,33 +106,33 @@ setedit(true)
                   <div class="px-4 py-5 bg-white sm:p-6">
                     <div class="grid grid-cols-6 gap-6">
                       <div class="col-span-6 sm:col-span-3">
-                      <label
-                        className="block mb-2 text-xs font-bold uppercase text-blueGray-600"
-                        htmlFor="grid-password"
-                      >
-                        blood_type
-                      </label>
-                      <select
-                        id="cars"
-                        name="blood_type"
-                        className="w-full h-10 px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
-                      >
-                        <option value="A+">A+</option>
-                        <option value="A-">A-</option>
-                        <option value="B+">B+</option>
-                        <option value="B-">B-</option>
-                        <option value="AB+">AB+</option>
-                        <option value="AB-">AB-</option>
-                        <option value="O+">O+</option>
-                        <option value="O-">O-</option>
-                      </select>
+                        <label
+                          className="block mb-2 text-xs font-bold uppercase text-blueGray-600"
+                          htmlFor="grid-password"
+                        >
+                          blood_type
+                        </label>
+                        <select
+                          id="cars"
+                          name="blood_type"
+                          className="w-full h-10 px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
+                        >
+                          <option value="A+">A+</option>
+                          <option value="A-">A-</option>
+                          <option value="B+">B+</option>
+                          <option value="B-">B-</option>
+                          <option value="AB+">AB+</option>
+                          <option value="AB-">AB-</option>
+                          <option value="O+">O+</option>
+                          <option value="O-">O-</option>
+                        </select>
                       </div>
 
                       <div class="col-span-6 sm:col-span-3">
                         <label
                           for="last-name"
                           class="block text-sm font-medium text-gray-700"
-                          
+
                         >
                           City
                         </label>
@@ -133,28 +144,12 @@ setedit(true)
                           class="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                         />
                       </div>
-                      <div class="col-span-6 sm:col-span-3">
-                        <label
-                          for="last-name"
-                          class="block text-sm font-medium text-gray-700"
-                          
-                        >
-                          Area
-                        </label>
-                        <input
-                          placeholder="just for filter"
-                          type="text"
-                          name="area"
-                          id="area"
-                          autocomplete="family-name"
-                          class="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                        />
-                      </div>
+                      
                     </div>
                   </div>
                   <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                     <button type="submit">
-                       <SearchIcon class="inline-flex justify-center  border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 w-9 h-9" />
+                      <SearchIcon class="inline-flex justify-center  border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 w-9 h-9" />
                     </button>
                   </div>
                 </div>
@@ -163,17 +158,21 @@ setedit(true)
           </div>
         </div>
 
-        <Table data={result}/>
+        <Table data={result} />
         <div className="mt-6 text-center">
-                      <button
-                        className="w-4/5 px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-red-800 active:bg-blueGray-600 hover:shadow-lg focus:outline-none"
-                        type="button"
-                        onClick={sendEmail}
-                      >
-                        send email
-                      </button>
-                    </div>
+          <button
+            className="w-4/5 px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear bg-red-800 rounded shadow outline-none active:bg-blueGray-600 hover:shadow-lg focus:outline-none"
+            type="button"
+            onClick={sendEmail}
+          >
+            send email
+          </button>
+        </div>
+        <button onClick={deleteaccount} className="my-12 text-red-600 border-2 border-red-600 border-dashed rounded-lg h-9 w-36 ml-52">
+          Remove account
+        </button>
       </div>
+      <Footer/>
     </>
   );
 }

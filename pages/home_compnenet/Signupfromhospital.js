@@ -1,11 +1,13 @@
 import React from "react";
 import axios from "axios";
-import { useState,useEffect } from "react";
-import { TweenMax, Power3, TimelineLite,Expo,gsap } from "gsap";
-
-import Navbar from "./Navbar";
+import { useAuth } from "../../contexts/auth";
+// import { useState,useEffect } from "react";
+// import { TweenMax, Power3, TimelineLite,Expo,gsap } from "gsap";
+// import Navbar from "./Navbar";
+import { useRouter } from 'next/router';
 export default function Signupformhospital() {
-
+  const { login,logout } = useAuth()
+  const router = useRouter()
   const handlesubmitsignup =async (e) => {
     let data = new FormData()
     e.preventDefault();
@@ -17,13 +19,25 @@ export default function Signupformhospital() {
     data.append("website",e.target.website.value)
     data.append("roles", "Hospital");
     let urls = `${url}accounts/hospital/signup/`;
-    
-    const create =axios.post(urls, data, {
-      headers: {
-        'content-type': 'multipart/form-data'
-      }
+    try {
+      const create = await axios.post(urls, data, {
+        headers: {
+          'content-type': 'multipart/form-data'
+        }
+      })
+      
+     await login(create.data.username, e.target.password.value).then(()=>{
+      router.push({
+        pathname: '/Profile',
+      });
     })
-    console.log(create.data);
+      
+    } 
+    catch (error) {
+      console.error(error);
+      logout();
+    }
+
   };
   return (
       <>      

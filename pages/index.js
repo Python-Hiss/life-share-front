@@ -12,7 +12,7 @@ export default function Home() {
 
   return (
     <>
-    {tokens ? <Newsfeed/> : <Homa_page/>}
+    {tokens ? <HospitalProfile/> : <Homa_page/>}
     {/* <HospitalProfile/> */}
     
     {/* <Testfrom/> */}

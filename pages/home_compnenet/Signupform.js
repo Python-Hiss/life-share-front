@@ -32,17 +32,18 @@ export default function Signupform() {
     data.append("password", e.target.password.value);
     data.append("blood_type",bloodtt.data.id);
     data.append("roles", e.target.role.value);
-    
+ 
     let urls = `${url}accounts/${role[e.target.role.value]}/signup/`;
+    router.push({
+      pathname: '/Profile',
+    });    
     const user = await axios.post(urls, data, {
       headers: {
         "content-type": "multipart/form-data",
       },
     });
-    router.push({
-      pathname: '/Profile',
-    }); 
-    console.log(user); 
+    
+
     await login(user.data.username, e.target.password.value)
     
  
