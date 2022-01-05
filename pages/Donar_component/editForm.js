@@ -23,12 +23,12 @@ export default function Example(props) {
     if (tokens.Role == "Patient") {
       data.append("reason", e.target.reason.value);
     }
-    let url = `http://127.0.0.1:8000/accounts/${role[tokens.Role]}/${
+    let url = `https://lifeshareproject.herokuapp.com/accounts/${role[tokens.Role]}/${
       tokens.id
     }/`;
 
     axios
-      .put(`http://127.0.0.1:8000/blood/update-blood/1/`, {
+      .put(`https://lifeshareproject.herokuapp.com/blood/update-blood/1/`, {
         blood_type: e.target.bloodType.value,
       })
       .then(() => {

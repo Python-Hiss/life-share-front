@@ -21,12 +21,12 @@ function UserProfile() {
   };
   let deleteHandler = async () => {
     await axios.delete(
-      `http://127.0.0.1:8000/accounts/${role[tokens.Role]}/${tokens.id}`
+      `https://lifeshareproject.herokuapp.com/accounts/${role[tokens.Role]}/${tokens.id}`
     );
   };
   useEffect(async () => {
     await axios
-      .get(`http://127.0.0.1:8000/accounts/${role[tokens.Role]}/${tokens.id}`)
+      .get(`https://lifeshareproject.herokuapp.com/accounts/${role[tokens.Role]}/${tokens.id}`)
       .then((data) => {
         setResult(data.data);
       });

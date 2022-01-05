@@ -12,7 +12,7 @@ function HospitalProfile() {
   const [result, setResult] = useState([]);
   const [profile, setprofile] = useState([]);
   const [edit, setedit] = useState(false);
-  const url = 'http://127.0.0.1:8000/'
+  const url = 'https://lifeshareproject.herokuapp.com/'
   const getdata = async()=> {
     await axios
     .get(`${url}accounts/hospital/${tokens.id}/`)

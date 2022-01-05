@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from 'react';
 import jwt from 'jsonwebtoken';
 import axios from 'axios'
-const baseUrl = "http://127.0.0.1:8000/"
+const baseUrl = "https://lifeshareproject.herokuapp.com/"
 // const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 const tokenUrl = baseUrl + 'accounts/donater/auth/';
 

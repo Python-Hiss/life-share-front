@@ -5,7 +5,7 @@ import axios from "axios";
 import { useAuth } from "../../contexts/auth";
 
 export default function EditHospital(props) {
-  let url = 'http://127.0.0.1:8000/'
+  let url = 'https://lifeshareproject.herokuapp.com/'
   const [address, setaddress] = useState("");
   const { tokens } = useAuth();
   useEffect(async () => {

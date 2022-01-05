@@ -18,7 +18,7 @@ export default function Signupform() {
     };
     let data = new FormData();
     e.preventDefault();
-    const url = ' http://127.0.0.1:8000/'
+    const url = ' https://lifeshareproject.herokuapp.com/'
     let blood = {
       blood_type: e.target.blood_type.value,
       description: e.target.description.value

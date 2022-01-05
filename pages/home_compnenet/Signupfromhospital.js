@@ -11,7 +11,7 @@ export default function Signupformhospital() {
   const handlesubmitsignup =async (e) => {
     let data = new FormData()
     e.preventDefault();
-    const url = 'http://127.0.0.1:8000/'
+    const url = 'https://lifeshareproject.herokuapp.com/'
     data.append("first_name",e.target.firstname.value)
     data.append("username",e.target.username.value)
     data.append("email",e.target.email.value)
