@@ -5,14 +5,14 @@ import Link from "next/link";
 // import IndexNavbar from "components/Navbars/IndexNavbar.js";
 // import Footer from "components/Footers/Footer.js";
 
-export default function SectionFour() {
+export default function Index() {
     return (
         <>
 
 {/* style={{backgroundColor:'#EEEBDD', marginTop:0}} */}
 
 
-            <section style={{marginBottom:"8px"}} class="section-content-block section-process">
+            <section style={{marginBottom:"50px",marginTop: "-250px"}} class="section-content-block section-process">
 
                 <div class="container-fluid">
 
@@ -31,7 +31,7 @@ export default function SectionFour() {
 
                             <div class="process-layout">
 
-                                <figure class="process-img">
+                                <figure  class="process-img">
                                     <img style={{width:"400px", height:"300px"}} src="https://previews.123rf.com/images/vladwel/vladwel1812/vladwel181200007/115187657-medical-online-research-report-on-computer-vector-flat-cartoon-health-or-medical-record-paper-or-ins.jpg" alt="process" />
                                     <div class="step">
                                         <h3>1</h3>
@@ -53,7 +53,7 @@ export default function SectionFour() {
 
                             <div class="process-layout">
 
-                                <figure class="process-img">
+                                <figure  class="process-img">
                                     <img style={{width:"400px", height:"300px"}} src="https://us.123rf.com/450wm/vectorlab/vectorlab1905/vectorlab190500326/123180425-blood-donation-male-female-characters-in-medical-uniform-making-lifeblood-transfusion-from-human-han.jpg?ver=6" alt="process" />
                                     <div class="step">
                                         <h3>2</h3>
@@ -118,3 +118,5 @@ export default function SectionFour() {
         </>
     );
 }
+
+

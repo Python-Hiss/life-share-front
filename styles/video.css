@@ -149,7 +149,7 @@
 
 
 #footer{
-  background-image: linear-gradient(#bb0a1e, #6d7c8e);
+  background-image: linear-gradient(#810000,#1B1717);
   background-position: 50% 50%;
   
 }
@@ -256,6 +256,8 @@
 .section-process {
   position: relative;
   overflow: hidden;
+  margin-left: 5%;
+  margin: 10%;
 }
 .process-layout {
   margin: 32px 0 0;
@@ -265,11 +267,11 @@
   background: #F8F9FA;
 }
 .process-layout .process-img {
+
   position: relative;
 }
 .process-layout .process-img img {
   vertical-align: middle;
-  width: 100%;
 }
 .process-layout .process-img .step h3 {
   color: #FFFFFF;

@@ -118,12 +118,12 @@ function HospitalProfile() {
         />
       )}
       {change && <Cahngepas token={tokens.access} />}
-      <button
+      {/* <button id="changePassword"
         className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
         onClick={changepas}
       >
         Change Password
-      </button>
+      </button> */}
       <div className="mt-6 text-center">
         {/* <button
                         className="w-1/5 px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear bg-red-800 rounded shadow outline-none active:bg-blueGray-600 hover:shadow-lg focus:outline-none"
@@ -202,12 +202,19 @@ function HospitalProfile() {
             send email
           </button>
         </div>
-        <button
+        <div id="removeandchange">
+        <button id="removebtn"
           onClick={deleteaccount}
-          className="my-12 text-red-600 border-2 border-red-600 border-dashed rounded-lg h-9 w-36 ml-52"
-        >
+          className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
           Remove account
         </button>
+        <button id="changePasswordbtn"
+        className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+        onClick={changepas}
+      >
+        Change Password
+      </button>
+      </div>
       </div>
       <Footer />
     </>
