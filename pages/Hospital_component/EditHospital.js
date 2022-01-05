@@ -174,7 +174,7 @@ export default function EditHospital(props) {
                       </label>
                       
                         <input
-                          
+                          defaultValue='amman'
                           type="text"
                           name="Area"
                           id="first-name"
@@ -191,7 +191,7 @@ export default function EditHospital(props) {
                       </label>
                       {/* {address.area && */}
                         <input
-                          // defaultValue={address.city.city}
+                          defaultValue='amman'
                           type="text"
                           name="City"
                           id="first-name"

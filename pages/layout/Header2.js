@@ -11,6 +11,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 export default function Example() {
+  
   const {tokens ,logout } = useAuth();
   let role = {
     Doner: "donater",
@@ -19,11 +20,14 @@ export default function Example() {
   };
   const [result, setResult] = useState([]);
   useEffect(async () => {
+    
     await axios
       .get(`https://lifeshareproject.herokuapp.com/accounts/${role[tokens.Role]}/${tokens.id}`)
       .then((data) => {
         setResult(data.data);
+        console.log(result.image);
       });
+      
   }, []);
 
   return (
@@ -61,7 +65,7 @@ export default function Example() {
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="object-cover w-8 h-8 rounded-full"
-                        src={result.image == "http://127.0.0.1:8000/uploads/image/profile_p.jpg"? "https://thumbs.dreamstime.com/b/male-icon-vector-user-person-profile-avatar-flat-color-glyph-pictogram-illustration-117610350.jpg ": result.image}
+                        src={result.image}
                         alt=""
                       />
                     </Menu.Button>

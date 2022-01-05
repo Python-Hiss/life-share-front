@@ -46,16 +46,28 @@ function HospitalProfile() {
   const showEdit = () => {
     setedit(true);
   };
+  let send = { 
+    // email: person.email ,
+    // website : profile.website,
+    // name: profile.first_name 
+}
+
 
   const sendEmail = async (e) => {
     setLoad(true);
     e.preventDefault();
     let loadnumber = result.length;
     result.map((person, index) =>
+    
       setTimeout(() => {
+        send = { 
+          email: person.email ,
+          website : profile.website,
+          name: profile.first_name 
+      }
         // do stuff function with item
-        axios.post(`${url}accounts/send-form-email/`, { email: person.email });
-        console.log("{ email: person.email }");
+        axios.post(`https://lifeshareproject.herokuapp.com/accounts/send-form-email/`, send);
+        // console.log(profile.first_name,profile.website);
       }, 2000 * index)
     );
     setTimeout(() => {
