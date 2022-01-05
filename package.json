@@ -6,9 +6,21 @@
     "start": "next start"
   },
   "dependencies": {
+    "@headlessui/react": "^1.4.2",
+    "@heroicons/react": "^1.0.5",
+    "@popperjs/core": "^2.11.0",
+    "axios": "^0.24.0",
+    "emailjs": "^3.7.0",
+    "emailjs-com": "^3.2.0",
+    "gsap": "^3.9.1",
+    "jsonwebtoken": "^8.5.1",
     "next": "latest",
+    "next-images": "^1.8.4",
+    "prop-types": "^15.8.0",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "smooth-scrollbar": "^8.7.2",
+    "smtpjs": "^0.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.0",
