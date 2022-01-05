@@ -34,11 +34,11 @@ function Example(props) {
           </div>
           <div className="px-4 py-5 bg-white sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt className="text-sm font-medium text-gray-500">City</dt>
-            {props.result.address && <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{props.result.address.city.city}</dd>}
+            {props.address && <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{props.address}</dd>}
           </div>
           <div className="px-4 py-5 bg-gray-50 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt className="text-sm font-medium text-gray-500">Blood Type</dt>
-            {props.result.blood_type &&<dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{props.result.blood_type.blood_type}</dd>}
+            {props.blood &&<dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{props.blood}</dd>}
           </div>
           
         </dl>

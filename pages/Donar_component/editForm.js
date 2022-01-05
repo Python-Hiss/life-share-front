@@ -1,60 +1,73 @@
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import axios from "axios";
 import { comment } from "postcss";
 import { Component } from "react/cjs/react.production.min";
 import { useAuth } from "../../contexts/auth";
 
 export default function Example(props) {
- 
+  const [address, setaddress] = useState("");
   const { tokens } = useAuth();
   let role = {
     Doner: "donater",
     Patient: "patient",
   };
-  let url2 = 'http://127.0.0.1:8000/'
+
+  let url2 = "http://127.0.0.1:8000/";
+  useEffect(async () => {
+    await axios
+      .get(`${url2}address/address/${props.result.address}/`)
+      .then((data) => {
+        setaddress(data.data)
+        console.log(data);
+      });
+  }, []);
+
+  const closing = () => {
+    props.setEditForm(false)
+  }
+
   const handlesubmit = async (e) => {
     e.preventDefault();
     let area = {
-      area:e.target.Area.value,
-      
-    }
+      area: e.target.Area.value,
+    };
     let city = {
-      city:e.target.City.value,
-      
-    }
-    const Area = await axios.post(`${url2}address/area/`,area)
-    const City = await axios.post(`${url2}address/city/`,city)
-    let address={
-      area:Area.data.id,
-      city:City.data.id,
-      direction : 'no comment'
-    }
-    const Address = await axios.post(`${url2}address/address/`,address)
-    console.log(Area.data);
-    console.log(City.data);
-    console.log(address);
+      city: e.target.City.value,
+    };
+    const Area = await axios.post(`${url2}address/area/`, area);
+    const City = await axios.post(`${url2}address/city/`, city);
+    let address = {
+      area: Area.data.id,
+      city: City.data.id,
+      direction: "no comment",
+    };
+    const Address = await axios.post(`${url2}address/address/`, address);
     let data = new FormData();
 
     data.append("first_name", e.target.firstname.value);
     data.append("username", e.target.username.value);
     data.append("email", e.target.email.value);
-    data.append("image", e.target.img.files[0]);
+    if (e.target.img.files[0]){
+      data.append("image", e.target.img.files[0]);
+    }
     data.append("phone_number", e.target.phone_number.value);
     data.append("chronic_diseases", e.target.chronic_diseases.checked);
-    data.append("blood_type", props.result.blood_type);
+    // data.append("blood_type", props.result.blood_type.id);
     if (tokens.Role == "Patient") {
       data.append("reason", e.target.reason.value);
     }
+    data.append("address", Address.data.id);
     let url = `http://127.0.0.1:8000/accounts/${role[tokens.Role]}/${
       tokens.id
     }/`;
 
     axios
-      .put(`http://127.0.0.1:8000/blood/update-blood/1/`, {
+      .put(`http://127.0.0.1:8000/blood/update-blood/${props.result.blood_type}/`, {
         blood_type: e.target.bloodType.value,
-        description: "No description added"
+        description: "No description added",
       })
-      .then(() => {
+      .then((res) => {
+        // props.setResult()
         axios
           .put(url, data, {
             headers: {
@@ -68,7 +81,10 @@ export default function Example(props) {
       });
 
     props.setEditForm(false);
+    props.setBlood(e.target.bloodType.value)
+    props.setAddress(e.target.City.value)
   };
+  let blood_types =['A+',"A-","B+","B-","AB+","AB-","O+","O-"]
   return (
     <>
       <div>
@@ -145,38 +161,61 @@ export default function Example(props) {
                       className="block w-full mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"
                     />
                   </div>
-                  <div className="col-span-6 sm:col-span-3">
-                        <label
-                          htmlFor="first-name"
-                          className="block text-sm font-medium text-gray-700"
-                        >
-                          Area
-                        </label>
+                  <div className="grid grid-cols-6 gap-6">
+                    <div className="col-span-6 sm:col-span-3">
+                      <label
+                        htmlFor="first-name"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Area
+                      </label>
+                      {address.area && (
                         <input
-                          defaultValue='i.e. Abdoun'
+                          defaultValue={address.area.area}
                           type="text"
                           name="Area"
                           id="first-name"
                           autoComplete="given-name"
                           className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"
                         />
-                      </div>
-                      <div className="col-span-6 sm:col-span-3">
-                        <label
-                          htmlFor="first-name"
-                          className="block text-sm font-medium text-gray-700"
-                        >
-                          City
-                        </label>
+                      )}
+                    </div>
+                    <div className="col-span-6 sm:col-span-3">
+                      <label
+                        htmlFor="first-name"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        City
+                      </label>
+                      {address.area && (
                         <input
-                          defaultValue='i.e. Amman'
+                          defaultValue={address.city.city}
                           type="text"
                           name="City"
                           id="first-name"
                           autoComplete="given-name"
                           className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"
                         />
-                      </div>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-6">
+                    <div className="relative w-40 mb-3">
+                      <label
+                        className="block mb-2 text-xs font-bold uppercase text-blueGray-600"
+                        htmlFor="grid-password"
+                      >
+                        Direction
+                      </label>
+                      <input
+                        defaultValue="direction"
+                        type="text"
+                        name="direction"
+                        className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"
+                      />
+                    </div>
+                  </div>
                   <div>
                     <label
                       htmlFor="about"
@@ -221,30 +260,38 @@ export default function Example(props) {
                     >
                       Blood Type
                     </label>
-                    <input
+                    {/* <input
                       type="text"
                       name="bloodType"
                       id="first-name"
                       autoComplete="given-name"
                       className="block w-full mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"
-                    />
+                    /> */}
+                    <select name="bloodType" class=" mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        {blood_types.map(type =>{
+                          return<option value={type}>{type}</option>
+                        })}
+                        
+                      </select>
                   </div>
-                 {tokens.Role == "Patient" && <div className="col-span-6 sm:col-span-3">
-                    <label
-                      htmlFor="first-name"
-                      className="block text-sm font-medium text-gray-700"
-                    >
-                      Reason
-                    </label>
-                    <input
-                      type="text"
-                      name="reason"
-                      defaultValue='Empty'
-                      id="first-name"
-                      autoComplete="given-name"
-                      className="block w-full mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"
-                    />
-                  </div>}
+                  {tokens.Role == "Patient" && (
+                    <div className="col-span-6 sm:col-span-3">
+                      <label
+                        htmlFor="first-name"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Reason
+                      </label>
+                      <input
+                        type="text"
+                        name="reason"
+                        defaultValue="Empty"
+                        id="first-name"
+                        autoComplete="given-name"
+                        className="block w-full mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"
+                      />
+                    </div>
+                  )}
                   <div>
                     <label className="block text-sm font-medium text-gray-700">
                       Photo
@@ -269,10 +316,16 @@ export default function Example(props) {
                     </div>
                   </div>
                 </div>
-                <div className="px-4 py-3 text-right bg-gray-50 sm:px-6">
+                <div className=" text-right bg-gray-50 sm:px-6">
+                <button
+                    onClick={closing}
+                    className="inline-flex justify-center mr-2 px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                  >
+                    Cancel
+                  </button>
                   <button
                     type="submit"
-                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                    className="inline-flex justify-center mb-2 ml-2 px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
                   >
                     Save
                   </button>
