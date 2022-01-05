@@ -36,9 +36,14 @@ export default function PostElement(props) {
             </div>
 
             <div class="shadow overflow-hidden sm:rounded-md w-4/5 mt-6 bg-white">
-              <h1 className="p-6 text-4xl" >{item.title}</h1>
-              <p className="p-6 text-1xl">
+              <h1 className="p-6 text-3xl" >{item.title}</h1>
+              <p className="p-6 text-2xl text-black">
+            
                 {item.text}
+              </p>
+              <br/>
+              <p className="p-6 text-black text-1xl">
+                Phone: {item.phone}
               </p>
               {item.patient == tokens.username &&
                 <div className="flex justify-end">

@@ -1,5 +1,5 @@
 import React from 'react'
-import { SearchIcon } from '@heroicons/react/outline'
+// import { SearchIcon } from '@heroicons/react/outline'
 
 export default function FormForPost(props) {
   
@@ -27,6 +27,10 @@ let blood_types =['A+',"A-","B+","B-","AB+","AB-","O+","O-"]
                     <div class="col-span-6 sm:col-span-5">
                       <label for="content" class="block text-sm font-medium text-gray-700">Add Content</label>
                       <input type="text" name="content" id="content" autocomplete="given-name" class="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                    </div>
+                    <div class="col-span-6 sm:col-span-5">
+                      <label for="phone" class="block text-sm font-medium text-gray-700">Add Phone</label>
+                      <input type="text" name="phone" id="phone" autocomplete="given-name" class="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                     </div>
 
                     <div class="col-span-6 sm:col-span-1 ">
