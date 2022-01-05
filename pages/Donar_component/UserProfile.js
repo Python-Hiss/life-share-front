@@ -7,6 +7,7 @@ import { Result } from "postcss";
 import UserInfo from "./UserInfo";
 import Header2 from "../layout/Header2";
 import Footer from "../home_compnenet/Footer";
+import Cahngepas from "../Hospital_component/Cahngepas";
 function UserProfile() {
   const { tokens } = useAuth();
   let role = {
@@ -17,6 +18,8 @@ function UserProfile() {
   const [blood, setBlood] = useState();
   const [address, setAddress] = useState();
   const [editForm, setEditForm] = useState(false);
+  const [change, setchange] = useState(false);
+
   let submitHandler = async (e) => {
     e.preventDefault();
     setEditForm(true);
@@ -39,7 +42,10 @@ function UserProfile() {
   
       
   }, []);
-
+  const changepas = (e) => {
+    e.preventDefault();
+    setchange(true);
+  };
   return (
     <>
       <Header2 />
@@ -82,6 +88,15 @@ function UserProfile() {
             />
           )}
         </div>
+        {change && <Cahngepas token={tokens.access} />}
+        {!change &&
+      <button
+        className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+        onClick={changepas}
+      >
+        Change Password
+      </button>
+}
       </div>
       <Footer />
     </>
