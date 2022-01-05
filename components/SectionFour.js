@@ -20,7 +20,6 @@ export default function Index() {
           toggleActions:'restart reverse restart reverse', // onenter onleave onenterback onleaveback
           start:'top center',
           end:'bottom center',
-          markers :true,
 
         },
         x: -500,

@@ -6,12 +6,14 @@ import { useAuth } from "../contexts/auth";
 import Navbar from "./Navbar";
 import { useRouter } from 'next/router';
 export default function Signupform() {
+  const [check , setcheck] = useState('')
   const { login } = useAuth()
   const router = useRouter()
   const showsignhospital = () => {
     gsap.to("#sectionsignuphospital", 1.5, { top: 0, ease: Power3.easeInOut });
   };
   const handlesubmitsignup = async (e) => {
+    try{
     let role = {
       Doner: "donater",
       Patient: "patient",
@@ -32,20 +34,24 @@ export default function Signupform() {
     data.append("password", e.target.password.value);
     data.append("blood_type",bloodtt.data.id);
     data.append("roles", e.target.role.value);
- 
+    
     let urls = `${url}accounts/${role[e.target.role.value]}/signup/`;
-    router.push({
-      pathname: '/Profile',
-    });    
+     
     const user = await axios.post(urls, data, {
       headers: {
         "content-type": "multipart/form-data",
       },
     });
-    
+    router.push({
+      pathname: '/Profile',
+    });  
 
     await login(user.data.username, e.target.password.value)
-    
+  }catch(error){
+    onsole.error(error);
+      logout();
+    setcheck('the username or email is already exist')
+  }
  
   };
   return (
@@ -69,7 +75,7 @@ export default function Signupform() {
                         >
                           Full Name
                         </label>
-                        <input
+                        <input required
                           type="text"
                           name="firstname"
                           className="w-full h-10 px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
@@ -83,7 +89,7 @@ export default function Signupform() {
                         >
                           User Name
                         </label>
-                        <input
+                        <input required
                           type="text"
                           name="username"
                           className="w-full h-10 px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
@@ -99,7 +105,7 @@ export default function Signupform() {
                         >
                           Email
                         </label>
-                        <input
+                        <input required
                           type="email"
                           name="email"
                           className="w-full h-10 px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
@@ -130,7 +136,7 @@ export default function Signupform() {
                         >
                           Password
                         </label>
-                        <input
+                        <input required
                           type="password"
                           name="password"
                           className="w-full h-10 px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
@@ -144,7 +150,7 @@ export default function Signupform() {
                         >
                           Confirm Password
                         </label>
-                        <input
+                        <input required
                           type="password"
                           name="confirmpassword"
                           className="w-full h-10 px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
@@ -180,13 +186,14 @@ export default function Signupform() {
                           className="block mb-2 text-xs font-bold uppercase text-blueGray-600"
                           htmlFor="grid-password"
                         >
-                          blood_type
+                          discription
                         </label>
                         <textarea name="description" rows="10" cols="30" className="w-full h-10 px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring">
                           No Comment
                         </textarea>
                       </div>
                     </div>
+                    <p className="text-black">{check}</p>
                     <div className="mt-6 text-center">
                       <button
                         className="w-full px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-800 active:bg-blueGray-600 hover:shadow-lg focus:outline-none"
@@ -197,7 +204,7 @@ export default function Signupform() {
                     </div>
                     <div className="mt-6 text-center">
                     <button
-                      className="w-full px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-800 active:bg-blueGray-600 hover:shadow-lg focus:outline-none"
+                      className="px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none w-30 bg-blueGray-800 active:bg-blueGray-600 hover:shadow-lg focus:outline-none"
                       type="button"
                       onClick={showsignhospital}
                     >
