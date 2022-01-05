@@ -3,7 +3,7 @@ import { SearchIcon } from '@heroicons/react/outline'
 
 export default function FormForPost(props) {
   
-let blood_types =["Select Blood Type",'A+',"A-","B+","B-","AB+","AB-","O+","O-"]
+let blood_types =['A+',"A-","B+","B-","AB+","AB-","O+","O-"]
   return (
     <>
     
@@ -15,7 +15,8 @@ let blood_types =["Select Blood Type",'A+',"A-","B+","B-","AB+","AB-","O+","O-"]
                 <div class="px-4 py-5 bg-white sm:p-6">
                   <div class="grid grid-cols-6 gap-6 items-end">
                     <div class="col-span-6 sm:col-span-5">
-                      <select class="mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                    <label for="content" class="block text-sm font-medium text-gray-700">Blood Type</label>
+                      <select name="title" class=" mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                         {blood_types.map(type =>{
                           return<option value={type}>{type}</option>
                         })}
