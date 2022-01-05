@@ -39,7 +39,7 @@ export default function Navbar() {
             </Link>
             
           </div>
-          <div
+          {/* <div
             className="divnavbar">
             <ul style={{display: 'flex'}} >
               <li  id="textdocs">
@@ -53,7 +53,7 @@ export default function Navbar() {
                   Post
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
       </nav>
 
