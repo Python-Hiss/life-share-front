@@ -1,14 +1,17 @@
 import React from "react";
 import axios from "axios";
 import { useAuth } from "../contexts/auth";
+import { useState } from "react";
 // import { useState,useEffect } from "react";
 // import { TweenMax, Power3, TimelineLite,Expo,gsap } from "gsap";
 // import Navbar from "./Navbar";
 import { useRouter } from 'next/router';
 export default function Signupformhospital() {
+  const [check , setcheck] = useState('')
   const { login,logout } = useAuth()
   const router = useRouter()
   const handlesubmitsignup =async (e) => {
+    
     let data = new FormData()
     e.preventDefault();
     const url = 'https://lifeshareproject.herokuapp.com/'
@@ -36,6 +39,7 @@ export default function Signupformhospital() {
     catch (error) {
       console.error(error);
       logout();
+      setcheck('the username or email is already exist')
     }
 
   };
@@ -56,7 +60,7 @@ export default function Signupformhospital() {
                     >
                       Hospital Name
                     </label>
-                    <input
+                    <input required
                       type="text"
                       name="firstname"
                       className="w-full px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
@@ -71,7 +75,7 @@ export default function Signupformhospital() {
                     >
                       User Name
                     </label>
-                    <input
+                    <input required
                       type="text"
                       name="username"
                       className="w-full px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
@@ -86,7 +90,7 @@ export default function Signupformhospital() {
                     >
                       Email
                     </label>
-                    <input
+                    <input required
                       type="email"
                       name="email"
                       className="w-full px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
@@ -101,7 +105,7 @@ export default function Signupformhospital() {
                     >
                       Password
                     </label>
-                    <input
+                    <input required
                       type="password"
                       name="password"
                       className="w-full px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
@@ -115,7 +119,7 @@ export default function Signupformhospital() {
                     >
                       Confirm Password
                     </label>
-                    <input
+                    <input required
                       type="password"
                       name="confirmpassword"
                       className="w-full px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
@@ -130,12 +134,13 @@ export default function Signupformhospital() {
                     >
                       website
                     </label>
-                    <input
+                    <input required
                       type="text"
                       name="website"
                       className="w-full px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
                     />
                   </div>
+                  <p className="text-black">{check}</p>
                   <div className="mt-6 text-center">
                     <button
                       className="w-full px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-blueGray-800 active:bg-blueGray-600 hover:shadow-lg focus:outline-none"
