@@ -26,7 +26,8 @@ export default function Newsfeed() {
       patient: tokens.username,
       title: e.target.title.value,
       text: e.target.content.value,
-      publish: true,
+      phone: e.target.phone.value,
+      city: "amman"
     };
     axios.post(url, data).then((res) => {
       setResult((result) => [res.data, ...result]);
@@ -56,7 +57,9 @@ export default function Newsfeed() {
       patient: itemupdate.patient,
       title: e.target.bloodtype.value,
       text: e.target.Content.value,
-      publish: true,
+      phone: e.target.phone.value,
+      city: "amman"
+      
     };
     axios.put(url, data).then(() => {
       axios.get("https://lifeshareproject.herokuapp.com/blood/show/").then((res) => {

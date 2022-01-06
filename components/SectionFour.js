@@ -4,8 +4,7 @@ import Link from "next/link";
 import {gsap } from "gsap";
 import { useEffect } from "react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-// import IndexNavbar from "components/Navbars/IndexNavbar.js";
-// import Footer from "components/Footers/Footer.js";
+
 
 export default function Index() {
     gsap.registerPlugin(ScrollTrigger)
@@ -20,6 +19,7 @@ export default function Index() {
           toggleActions:'restart reverse restart reverse', // onenter onleave onenterback onleaveback
           start:'top center',
           end:'bottom center',
+
 
         },
         x: -500,
