@@ -90,9 +90,9 @@ function UserProfile() {
         </div>
         {change && <Cahngepas token={tokens.access} setchange={setchange}/>}
         {!change &&
-      <button
-        className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-        onClick={changepas}
+      <button id="changePasswordbtn"
+      className="inline-flex justify-center px-4 py-2 mt-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm ml-52 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+      onClick={changepas}
       >
         Change Password
       </button>
