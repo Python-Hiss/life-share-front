@@ -45,7 +45,7 @@ export default function AboutUs() {
 
                                 <figure class="team-m">
                                     <a href="#" title="YOUSEF OBEIDAT">
-                                        <img id="img" src="https://media-exp1.licdn.com/dms/image/C4D03AQFt7BmjqLtWXw/profile-displayphoto-shrink_800_800/0/1640373647448?e=1646870400&v=beta&t=wIiy_LPx0RpgWxFedZU4u_rOLdfB6omczbYx7nJRJpM"  />
+                                        <img id="img" src="https://www.facebook.com/photo?fbid=473896157714893&set=pob.100052835372607"  />
                                     </a>
 
                                 </figure>
