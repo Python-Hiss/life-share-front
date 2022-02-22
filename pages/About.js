@@ -45,7 +45,7 @@ export default function AboutUs() {
 
                                 <figure class="team-m">
                                     <a href="#" title="YOUSEF OBEIDAT">
-                                        <img id="img" src="https://scontent.famm7-1.fna.fbcdn.net/v/t39.30808-6/274291056_473896154381560_7849998367261354536_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=174925&_nc_eui2=AeH302MJdKKgYlCdoTUYz2klW36uC8vGSKZbfq4Ly8ZIppAA8GEa2yHotYFui2d2JR3z4LXyS68Od5ogGXa_DRps&_nc_ohc=IfC0mVf4qcgAX_e97XI&_nc_ht=scontent.famm7-1.fna&oh=00_AT86Zgu8Xa5fGgB12_Qa7D2yy95YEYY1SzuCOUQx8537kQ&oe=6219CFD1"  />
+                                        <img id="img"  src="https://scontent.famm7-1.fna.fbcdn.net/v/t39.30808-6/274291056_473896154381560_7849998367261354536_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=174925&_nc_eui2=AeH302MJdKKgYlCdoTUYz2klW36uC8vGSKZbfq4Ly8ZIppAA8GEa2yHotYFui2d2JR3z4LXyS68Od5ogGXa_DRps&_nc_ohc=IfC0mVf4qcgAX_e97XI&_nc_ht=scontent.famm7-1.fna&oh=00_AT86Zgu8Xa5fGgB12_Qa7D2yy95YEYY1SzuCOUQx8537kQ&oe=6219CFD1" />
                                     </a>
 
                                 </figure>
